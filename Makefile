@@ -222,7 +222,7 @@ cleanfinal:
 		combined12.pdf combined345.pdf win32api1.pdf win32api2.pdf \
 		c90.pdf
 extract:
-	bsdtar -xf Disk01.iso -C source --strip-components=2 DOC/SDK/WIN32API
+	bsdtar -xf source/Disk01.iso -C source --strip-components=2 DOC/SDK/WIN32API
 
 c90.pdf: source/ansi-iso-9899-1990-1.pdf c90.num c90.toc pdfstuff
 	@$(info ADDTOC   $@)./pdfstuff --read $< --num c90.num --toc c90.toc \
