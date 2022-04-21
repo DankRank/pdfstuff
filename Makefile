@@ -65,11 +65,11 @@ VOL5 := \
 	MACROS1  \
 	DDE1
 
-VOL1_FILES:=$(addsuffix .PDF,$(addprefix pdfbase/WIN32API/VOLI/,$(VOL1))) 
-VOL2_FILES:=$(addsuffix .PDF,$(addprefix pdfbase/WIN32API/VOLII/,$(VOL2))) 
-VOL3_FILES:=$(addsuffix .PDF,$(addprefix pdfbase/WIN32API/VOLIII/,$(VOL3))) 
-VOL4_FILES:=$(addsuffix .PDF,$(addprefix pdfbase/WIN32API/VOLIV/,$(VOL4))) 
-VOL5_FILES:=$(addsuffix .PDF,$(addprefix pdfbase/WIN32API/VOLV/,$(VOL5))) 
+VOL1_FILES:=$(addsuffix .PS,$(addprefix nomarks/WIN32API/VOLI/,$(VOL1)))
+VOL2_FILES:=$(addsuffix .PS,$(addprefix nomarks/WIN32API/VOLII/,$(VOL2)))
+VOL3_FILES:=$(addsuffix .PS,$(addprefix nomarks/WIN32API/VOLIII/,$(VOL3)))
+VOL4_FILES:=$(addsuffix .PS,$(addprefix nomarks/WIN32API/VOLIV/,$(VOL4)))
+VOL5_FILES:=$(addsuffix .PS,$(addprefix nomarks/WIN32API/VOLV/,$(VOL5)))
 VOLS:=vol1.pdf vol2.pdf vol3.pdf vol4.pdf vol5.pdf
 
 # These are extracted by the expand.dir rule
@@ -112,36 +112,32 @@ combined345.pdf: vol3.pdf vol4.pdf vol5.pdf | pdfstuff
 	./pdfstuff $(addprefix --append ,vol3.pdf vol4.pdf vol5.pdf) \
 		--title "Programmer's Reference, Volumes 3, 4 & 5" \
 		--write $@
-vol1.pdf: $(VOL1_FILES) | pdfstuff
-	@$(info CONCAT   $@) \
-	./pdfstuff $(addprefix --append ,$(VOL1_FILES)) \
-		--box media 4050 7200 53100 64800 \
-		--title "Programmer's Reference, Volume 1" \
-		--write $@
-vol2.pdf: $(VOL2_FILES) | pdfstuff
-	@$(info CONCAT   $@) \
-	./pdfstuff $(addprefix --append ,$(VOL2_FILES)) \
-		--box media 4050 7200 53100 64800 \
-		--title "Programmer's Reference, Volume 2" \
-		--write $@
-vol3.pdf: $(VOL3_FILES) | pdfstuff
-	@$(info CONCAT   $@) \
-	./pdfstuff $(addprefix --append ,$(VOL3_FILES)) \
-		--box media 4050 7200 53100 64800 \
-		--title "Programmer's Reference, Volume 3" \
-		--write $@
-vol4.pdf: $(VOL4_FILES) | pdfstuff
-	@$(info CONCAT   $@) \
-	./pdfstuff $(addprefix --append ,$(VOL4_FILES)) \
-		--box media 4050 7200 53100 64800 \
-		--title "Programmer's Reference, Volume 4" \
-		--write $@
-vol5.pdf: $(VOL5_FILES) | pdfstuff
-	@$(info CONCAT   $@) \
-	./pdfstuff $(addprefix --append ,$(VOL5_FILES)) \
-		--box media 4050 7200 53100 64800 \
-		--title "Programmer's Reference, Volume 5" \
-		--write $@
+MEDIABOX=--box media 4050 7200 53100 64800
+vol1.tmp.pdf: $(VOL1_FILES) ps2pdf-multi.sh
+	@$(info PS2PDFM  $@) ./ps2pdf-multi.sh $@ $(VOL1_FILES)
+vol2.tmp.pdf: $(VOL2_FILES) ps2pdf-multi.sh
+	@$(info PS2PDFM  $@) ./ps2pdf-multi.sh $@ $(VOL2_FILES)
+vol3.tmp.pdf: $(VOL3_FILES) ps2pdf-multi.sh
+	@$(info PS2PDFM  $@) ./ps2pdf-multi.sh $@ $(VOL3_FILES)
+vol4.tmp.pdf: $(VOL4_FILES) ps2pdf-multi.sh
+	@$(info PS2PDFM  $@) ./ps2pdf-multi.sh $@ $(VOL4_FILES)
+vol5.tmp.pdf: $(VOL5_FILES) ps2pdf-multi.sh
+	@$(info PS2PDFM  $@) ./ps2pdf-multi.sh $@ $(VOL5_FILES)
+vol1.pdf: vol1.tmp.pdf pdfstuff
+	@$(info TWEAK    $@) \
+	./pdfstuff --read $< $(MEDIABOX) --title "Programmer's Reference, Volume 1" --write $@
+vol2.pdf: vol2.tmp.pdf pdfstuff
+	@$(info TWEAK    $@) \
+	./pdfstuff --read $< $(MEDIABOX) --title "Programmer's Reference, Volume 2" --write $@
+vol3.pdf: vol3.tmp.pdf pdfstuff
+	@$(info TWEAK    $@) \
+	./pdfstuff --read $< $(MEDIABOX) --title "Programmer's Reference, Volume 3" --write $@
+vol4.pdf: vol4.tmp.pdf pdfstuff
+	@$(info TWEAK    $@) \
+	./pdfstuff --read $< $(MEDIABOX) --title "Programmer's Reference, Volume 4" --write $@
+vol5.pdf: vol5.tmp.pdf pdfstuff
+	@$(info TWEAK    $@) \
+	./pdfstuff --read $< $(MEDIABOX) --title "Programmer's Reference, Volume 5" --write $@
 
 CXXFLAGS=-std=c++17 -O2 -Wall -Wextra
 LDLIBS=-lpodofo
@@ -221,7 +217,8 @@ clean: cleanfinal
 	$(RM) -r expand nomarks pdfbase
 	$(RM) expand.dir nomarks.dir pdfbase.dir
 cleanfinal:
-	$(RM) pdfstuff combined.pdf $(VOLS) combined.toc combined-toc.pdf win32api.pdf $(VOLS:.pdf=-toc.pdf) \
+	$(RM) pdfstuff combined.pdf $(VOLS) combined.toc combined-toc.pdf win32api.pdf \
+		$(VOLS:.pdf=-toc.pdf) $(VOLS:.pdf=.tmp.pdf) \
 		combined12.pdf combined345.pdf win32api1.pdf win32api2.pdf
 extract:
 	bsdtar -xf Disk01.iso -C source --strip-components=2 DOC/SDK/WIN32API
