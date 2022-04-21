@@ -1,0 +1,5 @@
+Introduction	v
+	About the Microsoft Win32 Programmer’s Reference	v
+	Microsoft Windows and the C Programming Language	vi
+	Document Conventions	vi
+Alphabetic Reference (A–G)	1

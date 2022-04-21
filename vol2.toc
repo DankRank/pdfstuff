@@ -1,0 +1,695 @@
+Introduction	xxiii
+	Organization of this Manual	xxiii
+	About the Microsoft Win32 Programmer’s Reference	xxiv
+	Microsoft Windows and the C Programming Language	xxiv
+	Document Conventions	xxv
+Part 3    System Services	1
+	Chapter 42    Memory Management	3
+		42.1  About Memory Management	4
+			42.1.1  Virtual Address Space and Physical Storage	4
+			42.1.2  Global and Local Functions	5
+			42.1.3  Standard C Library Functions	7
+			42.1.4  Virtual Memory Functions	7
+			42.1.5  Heap Functions	9
+			42.1.6  Shared Memory	10
+			42.1.7  Access Validation	11
+		42.2  Using the Virtual Memory Functions	12
+		42.3  Functions	16
+	Chapter 43    Processes and Threads	17
+		43.1  About Processes and Threads	18
+			43.1.1  Multitasking	18
+			43.1.2  Scheduling	20
+			43.1.3  Scheduling Priorities	21
+			43.1.4  Creating Threads	23
+			43.1.5  Suspending Thread Execution	25
+			43.1.6  Synchronizing Execution of Multiple Threads	25
+			43.1.7  Thread Local Storage	26
+			43.1.8  Terminating a Thread	27
+			43.1.9  Multiple Threads and GDI Objects	28
+			43.1.10  Creating Processes	28
+			43.1.11  Inheritance	28
+			43.1.12  Environment Variables	30
+			43.1.13  Setting Window Properties Using STARTUPINFO	30
+			43.1.14  Terminating a Process	31
+			43.1.15  Process and Thread Handles and Identifiers	33
+		43.2  Using Processes and Threads	33
+			43.2.1  Example: Multithreaded MDI Application	34
+			43.2.2  Example: Child Process with Redirected Input and Output	40
+			43.2.3  Changing Environment Variables	46
+			43.2.4  Using Thread Local Storage	48
+		43.3  Functions	50
+	Chapter 44    Synchronization	51
+		44.1  About Synchronization	52
+			44.1.1  Wait Functions	52
+			44.1.2  Synchronization Objects	53
+			44.1.3  Mutex Objects	54
+			44.1.4  Interprocess Synchronization	57
+			44.1.5  Synchronization and Overlapped Input and Output	59
+			44.1.6  Critical Section Objects	60
+			44.1.7  Interlocked Variable Access	61
+		44.2  Using Synchronization	61
+			44.2.1  Using Named Objects	62
+			44.2.2  Waiting for Multiple Objects	63
+			44.2.3  Using Mutex Objects	64
+			44.2.4  Using Semaphore Objects	66
+			44.2.5  Using Event Objects	68
+			44.2.6  Using Critical Section Objects	72
+		44.3  Functions	72
+	Chapter 45    Files	75
+		45.1  About Files	76
+			45.1.1  System Organization	76
+			45.1.2  File Operations	78
+		45.2  Using Files	83
+			45.2.1  Creating and Opening Files	84
+			45.2.2  Reading, Writing, and Locking Files	85
+			45.2.3  Creating and Using a Temporary File	90
+			45.2.4  Searching for Files and Changing File Attributes	91
+			45.2.5  Monitoring Changes in a Directory or Directory Tree	93
+			45.2.6  Retrieving a File Pointer	95
+		45.3  Functions	95
+	Chapter 46    File Systems	97
+		46.1  About File Systems for Microsoft Windows NT	98
+		46.2  The New Technology File System	98
+		46.3  The File Allocation Table File System	99
+		46.4  The High-Performance File System	100
+	Chapter 47    File Mapping	101
+		47.1  About File Mapping	102
+			47.1.1  Sharing a File	102
+			47.1.2  Sharing a Memory Block	103
+			47.1.3  Closing a File View	103
+		47.2  Using File Mapping	104
+		47.3  Functions	106
+	Chapter 48    Handles and Objects	107
+		48.1  About Handles and Objects	108
+			48.1.1  Handle Limitations	110
+		48.2  User and Graphics Device Interface Objects	111
+		48.3  Kernel Objects	114
+	Chapter 49    Security	123
+		49.1  About Security	125
+		49.2  Security Model	126
+			49.2.1  Access Tokens	127
+			49.2.2  Security Descriptors	129
+			49.2.3  Access-control Lists (ACLs)	130
+			49.2.4  Access-control Entries (ACEs)	132
+			49.2.5  Access Masks and Access Rights	133
+			49.2.6  Security Identifiers (SIDs)	135
+			49.2.7  Privileges	140
+			49.2.8  Impersonation	142
+			49.2.9  Security in New Objects	143
+			49.2.10  Inheritance	144
+			49.2.11  Audit Generation	146
+		49.3  Securable Objects	146
+			49.3.1  File and Directory Objects	147
+			49.3.2  Mailslot Objects	148
+			49.3.3  Pipe Objects	148
+			49.3.4  Kernel Objects	149
+			49.3.5  Window-management Objects	152
+			49.3.6  Registry Key Objects	156
+			49.3.7  Service Objects	157
+			49.3.8  Synchronization Objects	157
+		49.4  Using Security	158
+			49.4.1  Denying All Access	158
+			49.4.2  Allowing Access	160
+			49.4.3  Setting Privileges	163
+			49.4.4  Security Editor	167
+			49.4.5  Designing a Protected Server	168
+		49.5  Functions	168
+	Chapter 50    Dynamic-Link Libraries	171
+		50.1  About Dynamic-Link Libraries	172
+			50.1.1  Advantages of Dynamic Linking	173
+			50.1.2  Dynamic-Link Library Creation	173
+			50.1.3  The DLL Entrypoint Function	174
+			50.1.4  The Module-Definition File	175
+			50.1.5  Load-Time Dynamic Linking	176
+			50.1.6  Run-Time Dynamic Linking	177
+			50.1.7  Dynamic-Link Library Data	178
+		50.2  Using Dynamic-Link Libraries	179
+			50.2.1  Creating a Simple Dynamic-Link Library	179
+			50.2.2  Using Load-Time Dynamic Linking	181
+			50.2.3  Using Run-Time Dynamic Linking	182
+			50.2.4  Using Shared Memory in a Dynamic-Link Library	183
+			50.2.5  Using Thread Local Storage in a Dynamic-Link Library	187
+		50.3  Functions	190
+	Chapter 51    Resources	191
+		51.1  About Resources	192
+			51.1.1  Finding and Loading Resources	192
+			51.1.2  Adding, Deleting, and Replacing Resources	193
+			51.1.3  Enumerating Resources	194
+		51.2  Using Resources	194
+			51.2.1  Updating Resources	195
+			51.2.2  Creating a Resource List	196
+			51.2.3  Functions	201
+	Chapter 52    Registry and Initialization Files	203
+		52.1  About the Registry and Initialization Files	205
+			52.1.1  Structure of the Registry	206
+			52.1.2  Mapping and Initialization Files	209
+		52.2  Structure of HKEY_LOCAL_MACHINE	210
+			52.2.1  Hardware	210
+			52.2.2  Security and SAM	213
+			52.2.3  Software	213
+			52.2.4  System	216
+		52.3  Structure of HKEY_USERS	221
+			52.3.1  Console	222
+			52.3.2  Control Panel	222
+			52.3.3  Environment	228
+			52.3.4  Keyboard Layout	229
+			52.3.5  Network	229
+			52.3.6  Printers	229
+			52.3.7  Program Groups	229
+			52.3.8  Software	229
+		52.4  Storing Information in the Registry	231
+			52.4.1  Storage Space	232
+			52.4.2  Applications and the Registry	232
+			52.4.3  Changing User Profiles	233
+		52.5  Using the Registry Functions	233
+			52.5.1  Opening, Creating, and Closing Keys	234
+			52.5.2  Querying the Registry	234
+			52.5.3  Writing to the Registry	235
+			52.5.4  Working with Registry Files	235
+			52.5.5  Deleting Information from the Registry	236
+			52.5.6  Enumerating Keys and Values	236
+		52.6  Functions and Messages	238
+	Chapter 53    String Manipulation and Unicode	241
+		53.1  About Strings and Unicode	243
+			53.1.1  Character Sets	243
+			53.1.2  String Manipulation in Windows	245
+			53.1.3  Unicode in Windows	247
+		53.2  Using Strings and Unicode	253
+			53.2.1  Using Generic Data Types	253
+			53.2.2  Registering Window Classes	255
+			53.2.3  Subclassing and Automatic Message Translation	258
+			53.2.4  Using Special Characters in Unicode	258
+			53.2.5  Using Functions Without Unicode Equivalents	261
+		53.3  Functions	262
+	Chapter 54    Pipes	265
+		54.1  About Pipes	266
+			54.1.1  Anonymous Pipes	266
+			54.1.2  Named Pipes	267
+			54.1.3  Pipe Names	268
+			54.1.4  Named Pipe Modes	268
+			54.1.5  Named Pipe Operations	270
+			54.1.6  The Named Pipe Server Process	272
+			54.1.7  Named Pipe Type and Read Mode	273
+			54.1.8  Blocking and Nonblocking Pipe Operations	273
+			54.1.9  Synchronous and Overlapped Input and Output	274
+			54.1.10  Write-through to Remote Clients	276
+			54.1.11  Pipe Security	277
+		54.2  Using Pipes	277
+			54.2.1  Using Anonymous Pipes	278
+			54.2.2  Example: A Multithreaded Server	279
+			54.2.3  Example: A Server Using Overlapped Input and Output	282
+			54.2.4  Example: A Server Using Completion Routines	290
+			54.2.5  The Named Pipe Client Process	296
+			54.2.6  Transactions on Named Pipes	298
+		54.3  Functions	301
+	Chapter 55    Mailslots	303
+		55.1  About Mailslots	304
+			55.1.1  Mailslot Names	305
+			55.1.2  Mailslots and Microsoft LAN Manager 2.x	305
+			55.1.3  Server and Client Functions	306
+		55.2  Using Mailslots	307
+			55.2.1  Creating a Mailslot	307
+			55.2.2  Writing to a Mailslot	308
+			55.2.3  Reading from a Mailslot	309
+		55.3  Functions	311
+	Chapter 56    Networks	313
+		56.1  About Networks	314
+			56.1.1  Network-Independent Functions	315
+			56.1.2  The Netbios Function	316
+		56.2  Using Networks	317
+			56.2.1  Using the Connections Dialog Box	317
+			56.2.2  Enumerating Network Resources	317
+			56.2.3  Adding a Network Connection	320
+			56.2.4  Retrieving the Connection Name	320
+			56.2.5  Retrieving the User Name	321
+			56.2.6  Canceling a Network Connection	322
+			56.2.7  Retrieving Network Errors	323
+		56.3  Functions	324
+	Chapter 57    Consoles and Character-Mode Support	325
+		57.1  About Character-Mode Support	327
+			57.1.1  Consoles	327
+			57.1.2  Input and Output Methods	339
+			57.1.3  Console Code Pages	348
+			57.1.4  Console Control Handlers	349
+		57.2  Using the Console	350
+			57.2.1  Using the High-Level Input and Output Functions	351
+			57.2.2  Writing Characters or Colors to Consecutive Cells	354
+			57.2.3  Reading and Writing Blocks of Characters and Attributes	356
+			57.2.4  Reading Input Buffer Events	358
+			57.2.5  Scrolling a Screen Buffer’s Window	360
+			57.2.6  Scrolling a Screen Buffer’s Contents	361
+			57.2.7  Registering a Control Handler Function	363
+			57.2.8  Console Application Issues	364
+		57.3  Functions	365
+	Chapter 58    Services	367
+		58.1  About Services	368
+			58.1.1  The Service Control Manager	368
+			58.1.2  Database of Installed Services	369
+			58.1.3  Win32 Service Processes	370
+			58.1.4  Service Configuration Programs	373
+			58.1.5  Service Control Programs	375
+			58.1.6  Service Security	376
+		58.2  Using Services	378
+			58.2.1  Writing a Win32 Service Process’s main Function	378
+			58.2.2  Writing a ServiceMain Function	379
+			58.2.3  Writing a Control Handler Function	384
+			58.2.4  Opening an SCManager Database	385
+			58.2.5  Installing a Service	386
+			58.2.6  Deleting a Service	386
+			58.2.7  Changing a Service Configuration	387
+			58.2.8  Querying a Service’s Configuration	389
+			58.2.9  Starting a Service	390
+			58.2.10  Sending Control Requests to a Service	392
+		58.3  Functions	393
+	Chapter 59    Tape Backup	395
+		59.1  About Tape Backup	396
+			59.1.1  Tape Initialization	397
+			59.1.2  Tape Input and Output	397
+		59.2  Using Tape Backup	398
+		59.3  Functions	399
+	Chapter 60    Time	401
+		60.1  About Date and Time Functions	402
+			60.1.1  File Times	402
+			60.1.2  System Times	403
+			60.1.3  MS-DOS Times	403
+			60.1.4  Windows Time	404
+		60.2  Using Date and Time Functions	404
+			60.2.1  Displaying File Creation Times in a Directory Listing	404
+			60.2.2  Changing a File Time to the Current Time	406
+			60.2.3  Setting the System Time	406
+		60.3  Functions	408
+	Chapter 61    Atoms	409
+		61.1  About Atom Tables	410
+			61.1.1  Global Atom Table	410
+			61.1.2  Local Atom Tables	410
+			61.1.3  Atom Types	411
+			61.1.4  Atom Creation and Usage Count	412
+			61.1.5  Atom-Table Queries	412
+			61.1.6  Atom String Formats	412
+		61.2  Using Atoms	413
+		61.3  Functions	413
+	Chapter 62    Debugging	415
+		62.1  About Debugging Support	416
+			62.1.1  Support from Process, Thread, and Exception Functions	416
+			62.1.2  Debugging Functions	417
+		62.2  Using Debugging Support	422
+		62.3  Functions	425
+	Chapter 63    Errors	427
+		63.1  About Errors	428
+			63.1.1  Notifying the User	428
+			63.1.2  Logging Off or Shutting Down	428
+			63.1.3  Last-Error Code	429
+			63.1.4  Error Message Boxes	429
+		63.2  Using Errors	429
+			63.2.1  Notifying the User	430
+			63.2.2  Logging Off	430
+			63.2.3  Shutting Down	430
+			63.2.4  Retrieving the Last-Error Code	431
+		63.3  Functions	432
+	Chapter 64    Structured Exception Handling	433
+		64.1  About Structured Exception Handling	434
+			64.1.1  Exception Handling	434
+			64.1.2  Frame-based Exception Handling	436
+			64.1.3  Termination Handling	438
+			64.1.4  Syntax	439
+		64.2  Using Structured Exception Handling	442
+			64.2.1  Using an Exception Handler	442
+			64.2.2  Using a Termination Handler	443
+		64.3  Functions	444
+	Chapter 65    Event Logging	445
+		65.1  About Event Logging	446
+			65.1.1  Event Logging Model	446
+			65.1.2  Logging Guidelines	446
+			65.1.3  Logging Performance and Size	447
+			65.1.4  Event Logging Management Information	448
+		65.2  Event Logging Operations	449
+			65.2.1  Event Log Entry	449
+			65.2.2  Special Cases	452
+		65.3  Using Event Logging	453
+			65.3.1  Adding a Source to the Registry	453
+			65.3.2  Reporting an Event	454
+			65.3.3  Querying the Event Log	455
+			65.3.4  Reading the Event Log	456
+		65.4  Functions	457
+	Chapter 66    Performance Monitoring	459
+		66.1  About Performance Monitoring	460
+			66.1.1  Counters and Elapsed Times	460
+			66.1.2  Registry Database	461
+		66.2  Using Performance Monitoring	465
+			66.2.1  Displaying Object, Counter, and Instance Names	465
+			66.2.2  Displaying Counter Title Indices	485
+		66.3  Functions	487
+	Chapter 67    System Information	489
+		67.1  About System Information	490
+			67.1.1  System Configuration	490
+			67.1.2  System Shutdown	491
+			67.1.3  Windows Help	491
+		67.2  Using System Information	492
+			67.2.1  Getting System Configuration Information	492
+			67.2.2  Getting Hardware Information	494
+			67.2.3  Changing the Colors of Window Elements	497
+			67.2.4  Shutting Down the System	498
+			67.2.5  Starting Windows Help	500
+		67.3  Functions	501
+	Chapter 68    Communications	503
+		68.1  About Communications	504
+			68.1.1  Communications Resource Handles	504
+			68.1.2  Serial Communications Resource Configuration	505
+			68.1.3  Read and Write Operations	506
+			68.1.4  Communications Events	510
+			68.1.5  Extended Functions	511
+		68.2  Using the Communications Functions	512
+			68.2.1  Configuring a Communications Resource	512
+			68.2.2  Monitoring Communications Events	513
+		68.3  Functions	514
+Part 4    Multimedia Services	515
+	Chapter 69    Introduction to Multimedia Services	517
+		69.1  About Windows Multimedia Services	518
+		69.2  Architecture of Windows Multimedia Services	518
+		69.3  Windows Multimedia Design Philosophy	519
+		69.4  Building a Multimedia Application	519
+	Chapter 70    Media Control Interface	521
+		70.1  About the Media Control Interface	523
+		70.2  The Architecture of MCI	523
+			70.2.1  The MCI Programming Interfaces	523
+			70.2.2  The MCI Command Set	524
+			70.2.3  About MCI Devices	525
+			70.2.4  Opening MCI Devices	526
+		70.3  Using the Command-Message Interface	527
+			70.3.1  About Command Messages	527
+			70.3.2  Summary of MCI Command Messages	529
+			70.3.3  Sending Command Messages	531
+			70.3.4  Opening a Device	532
+			70.3.5  Closing a Device	536
+			70.3.6  Using the Wait and Notify Flags	536
+			70.3.7  Obtaining MCI System Information	538
+		70.4  About the Command-String Interface	539
+			70.4.1  Sending Command Strings	539
+			70.4.2  Additional Information About Command Strings	540
+	Chapter 71    Introduction to Audio	541
+		71.1  About Audio Services	542
+			71.1.1  Types of Audio Services	542
+			71.1.2  Levels of Audio Services	543
+		71.2  Windows Audio Architecture	543
+			71.2.1  High-Level Audio Functions	544
+			71.2.2  Low-Level Audio Functions	545
+			71.2.3  The MIDI Mapper	545
+		71.3  Audio File Formats	545
+			71.3.1  Using RIFF Files	546
+		71.4  Further Reading	546
+	Chapter 72    High-Level Audio	547
+		72.1  Function Prefixes	549
+		72.2  Playing Waveform Sounds	549
+			72.2.1  Restrictions in Playing Waveform Sounds	550
+			72.2.2  Using the PlaySound and sndPlaySound Functions	550
+			72.2.3  Playing System-Alert Sounds	553
+		72.3  Playing and Recording Audio Using Media Control Interface	554
+			72.3.1  MCI Audio Data Types	554
+			72.3.2  MCI Audio Commands	555
+			72.3.3  Opening MCI Audio Devices	555
+			72.3.4  Handling MCI Errors	560
+			72.3.5  Starting Playback	560
+			72.3.6  Changing the Current Position	565
+			72.3.7  Setting the Time Format	566
+			72.3.8  Closing MCI Audio Devices	568
+			72.3.9  Getting Information About Devices and Media	568
+			72.3.10  Recording With Waveform Audio Devices	572
+			72.3.11  Using the MCI MIDI Sequencer	575
+		72.4  The MIDI Mapper	577
+			72.4.1  MIDI Notational Conventions	577
+			72.4.2  The MIDI Mapper and Windows	577
+			72.4.3  The MIDI Mapper Architecture	578
+			72.4.4  The Channel Map	579
+			72.4.5  Patch Maps	580
+			72.4.6  Key Maps	581
+			72.4.7  Summary of Maps and MIDI Messages	582
+		72.5  Authoring MIDI Files	582
+			72.5.1  About Base-Level and Extended Synthesizers	582
+			72.5.2  Authoring Guidelines for MIDI Files	583
+			72.5.3  Standard MIDI Patch Assignments	585
+			72.5.4  Standard MIDI Key Assignments	586
+			72.5.5  Using the MARKMIDI Utility	587
+	Chapter 73    Low-Level Audio	589
+		73.1  Function Prefixes	592
+		73.2  Using Low-Level Audio Services	592
+			73.2.1  Querying Audio Devices	593
+			73.2.2  Opening and Closing Device Drivers	594
+			73.2.3  Allocating and Preparing Audio Data Blocks	595
+			73.2.4  Managing Audio Data Blocks	596
+			73.2.5  Using the MMTIME Structure	598
+			73.2.6  Handling Errors With Audio Functions	599
+		73.3  Playing Waveform Audio	600
+			73.3.1  Waveform Output Data Types	600
+			73.3.2  Querying Waveform Output Devices	600
+			73.3.3  Opening Waveform Output Devices	603
+			73.3.4  Specifying Waveform Data Formats	603
+			73.3.5  Writing Waveform Data	607
+			73.3.6  Getting the Current Playback Position	613
+			73.3.7  Stopping, Pausing, and Restarting Playback	613
+			73.3.8  Closing Waveform Output Devices	614
+			73.3.9  Changing Waveform Playback Volume	614
+			73.3.10  Changing Pitch and Playback Rate	615
+		73.4  Recording Waveform Audio	616
+			73.4.1  Waveform Input Data Types	616
+			73.4.2  Querying Waveform Input Devices	616
+			73.4.3  Opening Waveform Input Devices	617
+			73.4.4  Managing Waveform Recording	617
+		73.5  Playing MIDI Audio	619
+			73.5.1  MIDI Output Data Types	619
+			73.5.2  Querying MIDI Output Devices	620
+			73.5.3  Opening MIDI Output Devices	621
+			73.5.4  Sending MIDI Messages	621
+			73.5.5  Sending Buffered Messages	622
+			73.5.6  Sending MIDI Messages Using Running-Status	624
+			73.5.7  Resetting MIDI Output	625
+			73.5.8  Changing Internal MIDI Synthesizer Volume	625
+			73.5.9  Preloading Patches With Internal MIDI Synthesizers	626
+			73.5.10  Using the MIDI Mapper With Low-Level MIDI Functions	626
+		73.6  Recording MIDI Audio	627
+			73.6.1  MIDI Input Data Types	627
+			73.6.2  Querying MIDI Input Devices	627
+			73.6.3  Opening MIDI Input Devices	627
+			73.6.4  Managing MIDI Recording	627
+			73.6.5  Receiving Time-Stamped MIDI Messages	631
+			73.6.6  Receiving Running-Status Messages	631
+		73.7  Auxiliary Audio Devices	631
+			73.7.1  Querying Auxiliary Audio Devices	632
+			73.7.2  Changing Auxiliary Audio-Device Volume	633
+		73.8  Audio Clipboard Formats	634
+	Chapter 74    Multimedia Timers	635
+		74.1  About Multimedia Timers	636
+		74.2  Timer Services	636
+			74.2.1  Timer Data Types	636
+			74.2.2  Using Timer Services	636
+			74.2.3  Getting the System Time	637
+			74.2.4  Determining Maximum and Minimum Event Periods	637
+			74.2.5  Establishing Minimum Timer Resolution	637
+			74.2.6  Starting Timer Events	637
+			74.2.7  Canceling a Timer Event	638
+			74.2.8  Using Timer Callbacks	638
+		74.3  Joystick Services	640
+			74.3.1  Joystick Data Types	640
+			74.3.2  Using Joystick Services	640
+			74.3.3  Determining Joystick Capabilities	641
+			74.3.4  Methods for Checking Joystick Status	641
+			74.3.5  Capturing Joystick Messages to a Window Function	642
+			74.3.6  Processing Joystick Messages	642
+			74.3.7  Releasing the Joystick	644
+			74.3.8  Setting the Movement Threshold	644
+			74.3.9  Polling the Joystick	644
+			74.3.10  Using Joystick Messages	645
+	Chapter 75    Multimedia File Input/Output	647
+		75.1  About the Multimedia File Input/Output Services	649
+			75.1.1  Comparison With Other File I/O	649
+			75.1.2  Function Prefixes	650
+			75.1.3  Data Types	650
+		75.2  Performing Basic File Input/Output	650
+			75.2.1  Opening a File	651
+			75.2.2  Creating and Deleting Files	652
+			75.2.3  Reading and Writing a File	653
+			75.2.4  Seeking to a New Position in a File	653
+		75.3  Performing Buffered File Input/Output	653
+			75.3.1  Deciding When to Use Buffered File I/O	654
+			75.3.2  Opening a File for Buffered File I/O	654
+			75.3.3  I/O Buffer Control Functions	654
+		75.4  Working With RIFF Files	656
+			75.4.1  About RIFF Files	656
+			75.4.2  Generating Four-Character Codes	657
+			75.4.3  Creating RIFF Chunks	658
+			75.4.4  Navigating RIFF Files	659
+			75.4.5  Example of RIFF File I/O	661
+		75.5  Directly Accessing a File Input/Output Buffer	664
+			75.5.1  Getting Information on the File I/O Buffer	664
+			75.5.2  Reading and Writing the File I/O Buffer	665
+			75.5.3  Advancing the File I/O Buffer	665
+			75.5.4  Example of Accessing a File I/O Buffer	668
+			75.5.5  Ending Direct Access of a File I/O Buffer	669
+		75.6  Performing File Input/Output on Memory Files	669
+			75.6.1  Opening Memory Files	669
+		75.7  Using Custom Input/Output Procedures	670
+			75.7.1  Opening a File Using a Custom I/O Procedure	670
+			75.7.2  Writing an I/O Procedure	671
+			75.7.3  Installing an I/O Procedure	672
+			75.7.4  Sharing an I/O Procedure With Other Applications	672
+Part 5    Extension Libraries	673
+	Chapter 76    Common Dialog Box Library	675
+		76.1  About Common Dialog Boxes	677
+			76.1.1  The Color Dialog Box	678
+			76.1.2  The Font Dialog Box	681
+			76.1.3  The Open and Save As Dialog Boxes	681
+			76.1.4  The Print and Print Setup Dialog Boxes	682
+			76.1.5  The Find and Replace Dialog Boxes	684
+		76.2  Using the Common Dialog Boxes	684
+			76.2.1  Setting the Required Stack Size	685
+			76.2.2  Using the Color Dialog Box to Display Basic Colors	685
+			76.2.3  Using the Color Dialog Box to Display Custom Colors	687
+			76.2.4  Displaying the Font Dialog Box in Your Application	689
+			76.2.5  Displaying the Open Dialog Box in Your Application	691
+			76.2.6  Displaying the Save As Dialog Box in Your Application	694
+			76.2.7  Monitoring List Box Controls in an Open or Save As Dialog Box	696
+			76.2.8  Monitoring Filenames in an Open or Save As Dialog Box	697
+			76.2.9  Displaying a Print Dialog Box for the Default Printer	697
+			76.2.10  Displaying the Find Dialog Box	698
+			76.2.11  Displaying the Replace Dialog Box	699
+			76.2.12  Processing Dialog Box Messages for a Find or Replace Dialog Box	700
+		76.3  Customizing Common Dialog Boxes	701
+			76.3.1  Appropriate and Inappropriate Customizations	702
+			76.3.2  Hook Functions and Custom Dialog Box Templates	702
+			76.3.3  Displaying the Custom Dialog Box	707
+		76.4  Supporting and Processing Help for the Common Dialog Boxes	709
+		76.5  Error Detection	710
+	Chapter 77    Dynamic Data Exchange Management Library	713
+		77.1  About DDEML	714
+		77.2  Basic Concepts	714
+			77.2.1  Client and Server Interaction	714
+			77.2.2  Transactions and the DDE Callback Function	715
+			77.2.3  Service Names, Topic Names, and Item Names	715
+			77.2.4  System Topic	716
+		77.3  Initialization	717
+		77.4  Callback Function	718
+		77.5  String Management	720
+		77.6  Name Service	722
+			77.6.1  Service-Name Registration	722
+			77.6.2  Service-Name Filter	723
+		77.7  Conversation Management	723
+			77.7.1  Single Conversations	723
+			77.7.2  Multiple Conversations	727
+		77.8  Data Management	729
+		77.9  Transaction Management	732
+			77.9.1  Request Transaction	732
+			77.9.2  Poke Transaction	733
+			77.9.3  Advise Transaction	733
+			77.9.4  Execute Transaction	735
+			77.9.5  Synchronous and Asynchronous Transactions	735
+			77.9.6  Transaction Control	737
+			77.9.7  Transaction Classes	738
+			77.9.8  Transaction Summary	738
+		77.10  Error Detection	740
+		77.11  Monitoring Applications	740
+	Chapter 78    Shell Library	745
+		78.1  About the Shell Library	746
+			78.1.1  Using the Shell Features	746
+			78.1.2  Using the Drag-Drop Feature	746
+		78.2  Using Associations to Find and Start Applications	747
+		78.3  Extracting Icons from Executable Files	748
+		78.4  Functions	749
+	Chapter 79    Screen Saver Library	751
+		79.1  About Screen Savers	752
+		79.2  Using the Screen Saver Functions	754
+			79.2.1  Creating a Screen Saver	754
+			79.2.2  Installing New Screen Savers	763
+			79.2.3  Adding Help	764
+		79.3  Functions	764
+	Chapter 80    File Installation Library	765
+		80.1  About File Installation	766
+			80.1.1  Creating an Installation Program	766
+		80.2  Functions	768
+	Chapter 81    Data Decompression Library	769
+		81.1  Data Compression	770
+		81.2  Data Decompression	770
+		81.3  Using the Data Decompression Library	771
+			81.3.1  Decompressing a Single File	771
+			81.3.2  Decompressing Multiple Files	771
+			81.3.3  Reading Bytes from Compressed Files	772
+		81.4  Functions	772
+Part 6    Application Notes	773
+	Chapter 82    Control Panel Applications	775
+		82.1  About Control Panel	776
+		82.2  Starting a Control Panel Application	777
+		82.3  Creating a Control Panel Application	778
+			82.3.1  Creating the Entry-Point Function	779
+			82.3.2  Initializing the Application	780
+			82.3.3  Responding to User Actions	781
+			82.3.4  Closing the Application and the Dynamic-Link Library	781
+			82.3.5  Example of a Control Panel Application	781
+		82.4  Setting Up a New Application	783
+		82.5  Functions and Messages	784
+	Chapter 83    File Manager Extensions	785
+		83.1  About File Manager Extensions	786
+			83.1.1  Creating a File Manager Extension	786
+			83.1.2  Installing Extensions	790
+			83.1.3  Extension Messages	791
+			83.1.4  Processing Commands and Messages from File Manager	792
+			83.1.5  Adding the Undelete Command	796
+	Chapter 84    Shell Dynamic Data Exchange Interface	797
+		84.1  About Program Manager Initialization	798
+			84.1.1  Settings Key	798
+			84.1.2  Groups Key	799
+			84.1.3  Restrictions Key	799
+		84.2  Command-String Interface	800
+			84.2.1  CreateGroup	801
+			84.2.2  ShowGroup	802
+			84.2.3  DeleteGroup	803
+			84.2.4  Reload	803
+			84.2.5  AddItem	804
+			84.2.6  ReplaceItem	805
+			84.2.7  DeleteItem	805
+			84.2.8  ExitProgman	806
+		84.3  Requesting Group Information	806
+	Chapter 85    Interprocess Communications Options in Win32 Applications	807
+		85.1  About Interprocess Communications	808
+		85.2  Development Considerations	808
+			85.2.1  File Mapping	809
+			85.2.2  Shared Memory	810
+			85.2.3  Anonymous Pipes	811
+			85.2.4  Named Pipes	811
+			85.2.5  Mailslots	812
+			85.2.6  Clipboard	812
+			85.2.7  Dynamic Data Exchange	813
+			85.2.8  Object Linking and Embedding	813
+			85.2.9  Dynamic-Link Libraries	814
+			85.2.10  Remote Procedure Call	815
+			85.2.11  The Netbios Function	815
+		85.3  Summary	816
+Part 7    Appendixes	817
+	Appendix A    Error Codes	819
+		Alphabetical List of Error Codes	820
+		Numerical List of Error Codes	856
+	Appendix B    Virtual-Key Codes	871
+		Virtual-Key Codes	872
+	Appendix C    Locale Identifiers	877
+		Locale Identifiers (LCIDs)	878
+		LCTYPE Constants	878
+		Language Identifiers and Locales	886
+	Appendix D    Manufacturer and Product Identifiers	889
+		Introduction	890
+		Manufacturer Identifiers	890
+		Product Identifiers	890
+	Appendix E    MCI Command String Syntax Summary	891
+		Introduction	892
+		About the Command Tables	892
+		System Command Set	893
+		Required Command Set	894
+		Basic Command Set	894
+		Animation Command Set	895
+		Audio CD Command Set	898
+		MIDI Sequencer Command Set	899
+		Videodisc Command Set	901
+		Video Overlay Command Set	902
+		Waveform Audio Command Set	904
+	Appendix F    Raster Operation Codes	907
+		Binary Raster Operations	908
+		Ternary Raster Operations	910
+	Glossary	921
+		Terms	922
+Index	931

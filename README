@@ -1,0 +1,43 @@
+Tools for generating a nice Windows NT Programmer's Reference PDF file
+
+The command pdfstuff here might be useful for those who want to add tocs to existing
+PDFs.
+
+== How to use ==
+$ apt install build-essential wine ghostscript libpodofo-dev libpodofo-utils
+
+Get the SDK ISO here https://winworldpc.com/product/windows-sdk-ddk/nt-3x
+Copy the DOC/SDK/WIN32API directory to source/WIN32API (or if you have bsdtar
+installed you can just place Disk01.iso in this directory and run make extract)
+Run make
+
+== pdfstuff usage ==
+The program runs commands from its arguments from left to right. List of
+commands:
+
+--debug : enable debug output
+--read [file]   : read a pdf file into memory
+--write [file]  : write the current file
+--append [file] : append pages from another file to the current one
+                  (acts as --read if you don't have one open yet)
+--title [title] : sets the document title
+--num [file]    : reads page labels from a file
+--toc [file]    : reads toc from a file
+
+num files look like:
+    prefix<TAB>page number<TAB>page index
+Where page index is 1-based index of the page, and page number is the
+user-visible page number. You only need to specify the start of each range,
+everything else will be extrapolated. Currently only decimal and lower-case
+roman numerals are supported.
+See section 7.3.1 of PDF 1.3 standard for more details.
+
+toc files looks like:
+    <a bunch of tabs>title<TAB>page number
+The amount of tabs at the start indicates the depth of a given entry. The page
+number is the user visible one, and relies on the loaded num file. If you don't
+have that, it'll default to 1-based index.
+
+== Useful stuff ==
+The following oneliner was used for extracting the TOC
+cat expand/WIN32API/VOLI/FRONT1.PS | sed -n 's/^[^(]*(\([^.].*\)).*/\1/p' | awk 'BEGIN{x=0} /\/93$/{x=0} x==1{print} /Contents/{x=1}'

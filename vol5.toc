@@ -1,0 +1,13 @@
+Introduction	v
+	Organization of This Manual	vi
+	Document Conventions	vi
+Chapter 1    Data Types	1
+	1.1  Data Types	2
+Chapter 2    Messages	9
+	Alphabetic Reference	10
+Chapter 3    Structures	303
+	Alphabetic Reference	304
+Chapter 4    Macros	651
+	Alphabetic Reference	652
+Chapter 5    Dynamic Data Exchange Transactions	671
+	Alphabetic Reference	672

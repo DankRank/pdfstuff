@@ -1,0 +1,508 @@
+Introduction	xvii
+	Organization of this Manual	xvii
+	About the Microsoft Win32 Programmer’s Reference	xvii
+	Microsoft Windows and the C Programming Language	xviii
+	Document Conventions	xix
+Part 1    Window Management	1
+	Chapter 1    Windows	3
+		1.1  About Windows	5
+			1.1.1  Desktop Window	5
+			1.1.2  Application Windows	5
+			1.1.3  Window Creation	8
+			1.1.4  Window Handles	12
+			1.1.5  Window Styles	13
+			1.1.6  Owned Windows	19
+			1.1.7  Disabled Windows	19
+			1.1.8  Foreground and Background Windows	20
+			1.1.9  Show State	20
+			1.1.10  Size and Position	23
+			1.1.11  Window Destruction	27
+		1.2  Using Windows	28
+			1.2.1  Creating a Main Window	28
+			1.2.2  Creating, Enumerating, and Sizing Child Windows	30
+			1.2.3  Destroying a Window	32
+		1.3  Functions and Messages	33
+	Chapter 2    Messages and Message Queues	37
+		2.1  About Messages and Message Queues	38
+			2.1.1  Messages	38
+			2.1.2  Message Routing	39
+			2.1.3  Message Handling	40
+			2.1.4  Posting and Sending Messages	42
+			2.1.5  Message Types	43
+			2.1.6  Message Filtering	45
+			2.1.7  Message Deadlocks	45
+		2.2  Using Messages and Message Queues	46
+			2.2.1  Creating a Message Loop	46
+			2.2.2  Examining a Message Queue	48
+			2.2.3  Posting a Message	50
+			2.2.4  Sending a Message	50
+		2.3  Functions	53
+	Chapter 3    Window Classes	55
+		3.1  About Window Classes	56
+			3.1.1  Types of Window Classes	56
+			3.1.2  How Windows Locates a Class	57
+			3.1.3  Class Ownership	58
+			3.1.4  Elements of a Window Class	58
+			3.1.5  Class and Private Device Contexts	64
+		3.2  Using Window Classes	64
+		3.3  Functions	67
+	Chapter 4    Window Procedures	69
+		4.1  About Window Procedures	70
+			4.1.1  Structure of a Window Procedure	70
+			4.1.2  Default Window Procedure	71
+			4.1.3  Window Procedure Subclassing	71
+			4.1.4  Window Procedure Superclassing	74
+		4.2  Using Window Procedures	75
+			4.2.1  Designing a Window Procedure	75
+			4.2.2  Associating a Window Procedure with a Window Class	76
+			4.2.3  Subclassing a Window	77
+		4.3  Functions	79
+	Chapter 5    Keyboard Input	81
+		5.1  About Keyboard Input	82
+			5.1.1  Keyboard Input Model	82
+			5.1.2  Keyboard Focus and Activation	83
+			5.1.3  Keystroke Messages	83
+			5.1.4  Character Messages	86
+			5.1.5  Key Status	88
+			5.1.6  Keystroke and Character Translations	88
+			5.1.7  Hot Key Support	88
+		5.2  Using Keyboard Input	89
+			5.2.1  Processing Keystroke Messages	89
+			5.2.2  Translating Character Messages	91
+			5.2.3  Processing Character Messages	91
+			5.2.4  Using the Caret	93
+			5.2.5  Displaying Keyboard Input	93
+		5.3  Functions and Messages	101
+	Chapter 6    Mouse Input	103
+		6.1  About Mouse Input	104
+			6.1.1  Mouse Cursor	104
+			6.1.2  Mouse Capture	104
+			6.1.3  Mouse Configuration	105
+			6.1.4  Mouse Messages	105
+			6.1.5  The WM_NCHITTEST Message	108
+			6.1.6  Window Activation	109
+		6.2  Using Mouse Input	110
+			6.2.1  Tracking the Mouse Cursor	110
+			6.2.2  Drawing Lines with the Mouse	111
+			6.2.3  Processing a Double-Click Message	114
+			6.2.4  Selecting a Line of Text	115
+		6.3  Functions and Messages	120
+	Chapter 7    Timers	121
+		7.1  About Timers	122
+		7.2  Using Timers	122
+			7.2.1  Creating a Timer	122
+			7.2.2  Destroying a Timer	124
+			7.2.3  Creating a Mousetrap	124
+		7.3  Functions	128
+	Chapter 8    Hooks	129
+		8.1  About Hooks	130
+			8.1.1  Hook Chains	130
+			8.1.2  Hook Procedures	130
+			8.1.3  Hook Types	131
+		8.2  Using Hooks	134
+			8.2.1  Installing and Releasing Hook Procedures	134
+			8.2.2  Monitoring System Events	135
+		8.3  Functions	145
+	Chapter 9    Controls	147
+		9.1  About Controls	148
+			9.1.1  Predefined Controls	148
+			9.1.2  Custom Controls	149
+			9.1.3  Notification Messages	151
+			9.1.4  Control Messages	151
+		9.2  Messages	152
+	Chapter 10    Buttons	153
+		10.1  About Buttons	154
+			10.1.1  Button Types and Styles	154
+			10.1.2  Button States	158
+			10.1.3  Notification Messages from Buttons	160
+			10.1.4  Messages to Buttons	161
+			10.1.5  Button Color Messages	162
+			10.1.6  Default Message Processing	162
+		10.2  Using Buttons	165
+			10.2.1  Creating a Button Outside a Dialog Box	165
+			10.2.2  Using Buttons That Are Not Owner-Drawn	165
+			10.2.3  Using Owner-Drawn Buttons	169
+		10.3  Functions and Messages	171
+	Chapter 11    List Boxes	173
+		11.1  About List Boxes	174
+			11.1.1  List Box Styles	174
+			11.1.2  List Box Functions	176
+			11.1.3  Notification Messages from List Boxes	177
+			11.1.4  Messages to List Boxes	177
+			11.1.5  Default Window-Message Processing	180
+		11.2  Using List Boxes	181
+			11.2.1  Creating a Simple List Box	182
+			11.2.2  Creating a Directory Listing in a Single-Selection List Box	185
+			11.2.3  Creating a Multiple-Selection List Box	187
+			11.2.4  Creating an Owner-Drawn List Box	190
+		11.3  Functions and Messages	195
+	Chapter 12    Edit Controls	197
+		12.1  About Edit Controls	199
+			12.1.1  Edit Control Styles	199
+			12.1.2  The Text Buffer	201
+			12.1.3  Changing the Formatting Rectangle	202
+			12.1.4  Text Operations	202
+			12.1.5  Edit Control Notifications	208
+			12.1.6  Default Message Processing	209
+		12.2  Using Edit Controls	214
+			12.2.1  Simple Word Processing with an Edit Control	214
+			12.2.2  Using Single-Line Edit Controls	217
+		12.3  Functions and Messages	220
+		Terms	221
+	Chapter 13    Combo Boxes	223
+		13.1  About Combo Boxes	225
+			13.1.1  Combo Box Types and Styles	225
+			13.1.2  Combo Box List	227
+			13.1.3  Edit Control Selection Fields	229
+			13.1.4  Owner-Drawn Combo Boxes	230
+			13.1.5  Subclassing Combo Boxes	231
+			13.1.6  Special Combo Box Features	232
+			13.1.7  Combo Box Notifications	233
+			13.1.8  Default Combo Box Behavior	234
+		13.2  Using Combo Boxes	239
+			13.2.1  Creating a Simple Combo Box	239
+			13.2.2  Creating an Owner-Drawn Combo Box	244
+			13.2.3  Subclassing a Combo Box	253
+		13.3  Functions and Messages	259
+	Chapter 14    Scroll Bars	261
+		14.1  About Scroll Bars	262
+			14.1.1  Parts of a Scroll Bar	262
+			14.1.2  Standard Scroll Bars and Scroll Bar Controls	263
+			14.1.3  Scroll Box Position and Scrolling Range	265
+			14.1.4  Scroll Bar Requests	266
+			14.1.5  Keyboard Interface for a Scroll Bar	269
+			14.1.6  Scrolling the Client Area	270
+			14.1.7  Scroll Bar Visibility	271
+			14.1.8  Scroll Bar Colors and Metrics	271
+		14.2  Using Scroll Bars	272
+			14.2.1  Creating Scroll Bars	272
+			14.2.2  Scrolling Text	273
+			14.2.3  Scrolling a Bitmap	280
+			14.2.4  Creating a Keyboard Interface for a Standard Scroll Bar	290
+		14.3  Functions and Messages	291
+	Chapter 15    Static Controls	293
+		15.1  About Static Controls	294
+			15.1.1  Static Control Types and Styles	294
+			15.1.2  Messages for Icons	297
+			15.1.3  Static Control Color Messages	297
+			15.1.4  Default Message Processing	298
+		15.2  Using Static Controls	299
+		15.3  Messages	301
+	Chapter 16    Menus	303
+		16.1  About Menus	305
+			16.1.1  Menu Bars and Pop-up Menus	305
+			16.1.2  Menu Handles	307
+			16.1.3  Class Menus	307
+			16.1.4  Menu Items	307
+			16.1.5  Keyboard Access to Menus	312
+			16.1.6  Menu Creation	314
+			16.1.7  Menu Display	315
+			16.1.8  Menu Destruction	315
+			16.1.9  Menu Messages	315
+			16.1.10  Menu Modifications	316
+		16.2  Using Menus	317
+			16.2.1  Using a Menu-Template Resource	317
+			16.2.2  Creating a Floating Pop-up Menu	322
+			16.2.3  Using Menu-Item Bitmaps	325
+			16.2.4  Creating Owner-drawn Menu Items	331
+			16.2.5  Using Custom Check Mark Bitmaps	338
+		16.3  Functions and Messages	347
+	Chapter 17    Keyboard Accelerators	349
+		17.1  About Keyboard Accelerators	350
+			17.1.1  Accelerator Tables	350
+			17.1.2  Accelerator-Table Creation	351
+			17.1.3  Accelerator Keystroke Assignments	352
+			17.1.4  Accelerators and Menus	353
+		17.2  Using Keyboard Accelerators	354
+			17.2.1  Using an Accelerator-Table Resource	354
+			17.2.2  Using an Accelerator Table Created at Run Time	361
+		17.3  Functions and Messages	370
+	Chapter 18    Dialog Boxes	371
+		18.1  About Dialog Boxes	373
+			18.1.1  When to Use a Dialog Box	373
+			18.1.2  Owner Window	374
+			18.1.3  Message Boxes	375
+			18.1.4  Modal Dialog Boxes	375
+			18.1.5  Modeless Dialog Boxes	377
+			18.1.6  Dialog Box Template	378
+			18.1.7  Dialog Box Procedure	385
+			18.1.8  Dialog Box Keyboard Interface	390
+			18.1.9  Dialog Box Settings	394
+			18.1.10  Custom Dialog Boxes	396
+		18.2  Using Dialog Boxes	397
+			18.2.1  Displaying a Message Box	397
+			18.2.2  Creating a Modal Dialog Box	398
+			18.2.3  Creating a Modeless Dialog Box	400
+			18.2.4  Initializing a Dialog Box	403
+			18.2.5  Creating a Template in Memory	404
+		18.3  Functions and Messages	406
+	Chapter 19    Rectangles	409
+		19.1  About Rectangles	410
+			19.1.1  Rectangle Coordinates	410
+			19.1.2  Rectangle Operations	410
+		19.2  Using Rectangles	412
+		19.3  Functions	420
+	Chapter 20    Painting and Drawing	421
+		20.1  About Painting and Drawing	423
+			20.1.1  When to Draw in a Window	423
+			20.1.2  The WM_PAINT Message	424
+			20.1.3  Drawing Without the WM_PAINT Message	427
+			20.1.4  Window Coordinate System	428
+			20.1.5  Window Regions	429
+			20.1.6  Window Background	429
+			20.1.7  Minimized Windows	430
+			20.1.8  Window Size	431
+			20.1.9  Nonclient Area	432
+			20.1.10  Child Windows	432
+			20.1.11  Display Device Contexts	434
+			20.1.12  Window Update Lock	440
+			20.1.13  Accumulated Bounding Rectangle	441
+		20.2  Using the WM_PAINT Message	441
+			20.2.1  Drawing in the Client Area	442
+			20.2.2  Redrawing the Entire Client Area	443
+			20.2.3  Redrawing in the Update Region	444
+			20.2.4  Invalidating the Client Area	445
+			20.2.5  Drawing a Minimized Window	447
+			20.2.6  Drawing a Custom Window Background	447
+			20.3  Using the GetDC Function	449
+			20.3.1  Drawing with the Mouse	449
+			20.3.2  Drawing at Timed Intervals	450
+		20.4  Functions and Messages	453
+	Chapter 21    Cursors	455
+		21.1  About Cursors	456
+			21.1.1  The Hot Spot	457
+			21.1.2  The Mouse and the Cursor	457
+			21.1.3  Cursor Creation	457
+			21.1.4  Cursor Location and Appearance	458
+			21.1.5  Cursor Confinement	459
+			21.1.6  Cursor Destruction	459
+			21.1.7  Cursor Duplication	459
+		21.2  Using Cursors	460
+			21.2.1  Creating a Cursor	460
+			21.2.2  Displaying a Cursor	463
+			21.2.3  Confining a Cursor	464
+			21.2.4  Creating a Mousetrap	465
+			21.2.5  Using the Keyboard to Move the Cursor	470
+		21.3  Functions and Messages	472
+	Chapter 22    Carets	473
+		22.1  About Carets	474
+		22.2  Using Carets	475
+			22.2.1  Creating and Displaying a Caret	475
+			22.2.2  Hiding a Caret	476
+			22.2.3  Destroying a Caret	478
+			22.2.4  Adjusting the Blink Time	479
+			22.2.5  Processing Keyboard Input	479
+		22.3  Functions	486
+	Chapter 23    Icons	487
+		23.1  About Icons	488
+			23.1.1  The Hot Spot	488
+			23.1.2  Icon Creation	489
+			23.1.3  Icon Display	489
+			23.1.4  Icon Destruction	490
+			23.1.5  Icon Duplication	490
+		23.2  Using Icons	490
+			23.2.1  Creating an Icon	491
+			23.2.2  Displaying an Icon	494
+			23.2.3  Creating a Mousetrap	495
+			23.2.4  Sharing Icon Resources	497
+		23.3  Functions and Messages	499
+	Chapter 24    Window Properties	501
+		24.1  About Window Properties	502
+		24.2  Using Window Properties	502
+			24.2.1  Adding a Window Property	503
+			24.2.2  Retrieving a Window Property	503
+			24.2.3  Listing Window Properties for a Given Window	504
+			24.2.4  Deleting a Window Property	505
+		24.3  Functions	506
+	Chapter 25    Clipboard	507
+		25.1  About the Clipboard	509
+			25.1.1  Clipboard Formats	509
+			25.1.2  Clipboard Operations	511
+			25.1.3  Clipboard Viewers	513
+			25.1.4  Clipboard Commands	515
+		25.2  Using the Clipboard	515
+			25.2.1  Implementing the Cut, Copy, and Paste Commands	515
+			25.2.2  Creating a Clipboard Viewer Window	528
+		25.3  Functions and Messages	536
+	Chapter 26    Dynamic Data Exchange	537
+		26.1  About Dynamic Data Exchange	538
+			26.1.1  Dynamic Data Exchange Protocol	538
+			26.1.2  Uses for Windows Dynamic Data Exchange	539
+			26.1.3  Dynamic Data Exchange from the User’s Point of View	539
+			26.1.4  Dynamic Data Exchange Concepts	540
+			26.1.5  Dynamic Data Exchange Messages	543
+			26.1.6  Dynamic Data Exchange Message Flow	544
+			26.1.7  Parameter-Packing Functions	545
+		26.2  Using Dynamic Data Exchange	545
+			26.2.1  Initiating a Conversation	545
+			26.2.2  Transferring a Single Item	548
+			26.2.3  Establishing a Permanent Data Link	554
+			26.2.4  Carrying Out Commands in a Server Application	560
+			26.2.5  Terminating a Conversation	561
+		26.3  Functions and Messages	563
+	Chapter 27    Multiple Document Interface	565
+		27.1  About the Multiple Document Interface	566
+			27.1.1  Frame, Client, and Child Windows	566
+			27.1.2  Child Window Creation	567
+			27.1.3  Child Window Activation	567
+			27.1.4  Menus	568
+			27.1.5  Accelerators	569
+			27.1.6  Child Window Size and Arrangement	569
+			27.1.7  Icon Title Windows	570
+			27.1.8  Child Window Data	570
+		27.2  Using the Multiple Document Interface	571
+			27.2.1  Registering Child and Frame Window Classes	571
+			27.2.2  Creating Frame and Child Windows	572
+			27.2.3  Writing the Main Message Loop	574
+			27.2.4  Writing the Frame Window Procedure	575
+			27.2.5  Writing the Child Window Procedure	575
+			27.2.6  Creating a Child Window	576
+		27.3  Functions and Messages	578
+Part 2    Graphics Device Interface	581
+	Chapter 28    Device Contexts	583
+		28.1  About Device Contexts	584
+			28.1.1  Graphic Objects	584
+			28.1.2  Graphic Modes	585
+			28.1.3  Device Context Types	586
+			28.1.4  Device Context Operations	588
+		28.2  Using the Device Context Functions	591
+			28.2.1  Obtaining a Private Display Device Context	591
+			28.2.2  Creating a Printer Device Context	593
+			28.2.3  Retrieving the Capabilities of a Printer	595
+			28.2.4  Retrieving Graphic-Object Attributes and Selecting New Graphic Objects	595
+		28.3  Functions and Message	597
+	Chapter 29    Bitmaps	599
+		29.1  About Bitmaps	600
+			29.1.1  Bitmap Types	602
+			29.1.2  Bitmaps, Device Contexts, and Drawing Surfaces	604
+			29.1.3  Bitmap Rotation	605
+			29.1.4  Bitmap Scaling	605
+			29.1.5  Bitmaps as Brushes	606
+			29.1.6  Bitmap Storage	607
+		29.2  Using Bitmaps	609
+			29.2.1  Capturing an Image	609
+			29.2.2  Scaling an Image	611
+			29.2.3  Storing an Image	613
+		29.3  Functions	617
+	Chapter 30    Brushes	619
+		30.1  About Brushes	620
+			30.1.1  Brush Origin	620
+			30.1.2  Logical Brush Types	621
+		30.2  Using Brushes	623
+		30.3  Functions	631
+	Chapter 31    Pens	633
+		31.1  About Pens	634
+			31.1.1  Cosmetic Pens	634
+			31.1.2  Geometric Pens	634
+			31.1.3  Pen Attributes	635
+		31.2  Using Pens	638
+			31.2.1  Modifying the Dialog Box Template	638
+			31.2.2  Processing Dialog Box Input	640
+		31.3  Functions	643
+	Chapter 32    Regions	645
+		32.1  About Regions	646
+			32.1.1  Region Creation and Selection	646
+			32.1.2  Region Operations	646
+		32.2  Using Regions	650
+			32.2.1  Using Regions to Clip Output	650
+			32.2.2  Using Regions to Perform Hit Testing	656
+		32.3  Functions	657
+	Chapter 33    Lines and Curves	659
+		33.1  About Lines and Curves	660
+			33.1.1  Lines	660
+			33.1.2  Curves	661
+			33.1.3  Combined Lines and Curves	663
+			33.1.4  Line and Curve Attributes	664
+		33.2  Using Lines and Curves	665
+			33.2.1  Drawing Markers	665
+			33.2.2  Drawing a Pie Chart	667
+		33.3  Functions	671
+	Chapter 34    Filled Shapes	673
+		34.1  About Filled Shapes	674
+			34.1.1  Ellipse	674
+			34.1.2  Chord	674
+			34.1.3  Pie	675
+			34.1.4  Polygon	676
+			34.1.5  Rectangle	676
+		34.2  Using Filled Shapes	677
+		34.3  Functions	683
+	Chapter 35    Fonts and Text	685
+		35.1  About Fonts	687
+			35.1.1  Fonts	687
+			35.1.2  Font Families	689
+			35.1.3  Raster, Vector, and TrueType Fonts	689
+			35.1.4  Character Sets Used by Fonts	690
+			35.1.5  Font Installation and Deletion	692
+			35.1.6  Font Creation and Selection	693
+			35.1.7  Embedded Fonts	695
+		35.2  About Text Output	696
+			35.2.1  Formatting Text	696
+			35.2.2  Drawing Text	702
+		35.3  Using the Font and Text-Output Functions	703
+			35.3.1  Using a Stock Font to Draw Text	703
+			35.3.2  Creating a Logical Font	704
+			35.3.3  Enumerating the Installed Fonts	705
+			35.3.4  Checking the Text Capabilities of a Device	708
+			35.3.5  Setting the Text Alignment	708
+			35.3.6  Drawing Text From Different Fonts on the Same Line	709
+			35.3.7  Rotating Lines of Text	712
+			35.3.8  Retrieving Character Outlines	713
+			35.3.9  Using Portable TrueType Metrics	715
+			35.3.10  Using PANOSE Numbers	718
+			35.3.11  Creating Customized Fonts	718
+		35.4  Font and Text Functions	721
+	Chapter 36    Colors	723
+		36.1  About Color	724
+			36.1.1  Colors and Light	724
+			36.1.2  Colors and Video Display Technology	725
+			36.1.3  Color Operations	726
+		36.2  Using Color	729
+			36.2.1  Creating a Colored Pen	729
+		36.3  Functions and Messages	731
+	Chapter 37    Paths	733
+		37.1  About Paths	734
+			37.1.1  Outlined and Filled Paths	735
+			37.1.2  Transformations of Paths	735
+			37.1.3  Clip Paths	736
+			37.1.4  Conversion of Paths to Regions	736
+			37.1.5  Curved Paths	737
+		37.2  Using Paths	737
+		37.3  Functions	741
+	Chapter 38    Clipping	743
+		38.1  About Clipping	744
+			38.1.1  Clipping Regions	744
+			38.1.2  Clip Paths	745
+		38.2  Using Clipping	746
+		38.3  Functions	748
+	Chapter 39    Coordinate Spaces and Transformations	749
+		39.1  About Coordinate Spaces and Transformations	750
+			39.1.1  Transformation of Coordinate Spaces	752
+			39.1.2  World-Space to Page-Space Transformations	753
+			39.1.3  Page-Space to Device-Space Transformations	761
+			39.1.4  Device-Space to Physical-Device Transformation	764
+			39.1.5  Default Transformations	764
+		39.2  Using Coordinates Spaces and Transformations	765
+		39.3  Functions	769
+	Chapter 40    Metafiles	771
+		40.1  About Metafiles	772
+			40.1.1  Enhanced-Format Metafiles	773
+			40.1.2  Windows-Format Metafiles	776
+		40.2  Using Metafiles	776
+			40.2.1  Creating an Enhanced Metafile	776
+			40.2.2  Displaying a Picture and Storing It in an Enhanced Metafile	779
+			40.2.3  Opening an Enhanced Metafile and Displaying Its Contents	780
+			40.2.4  Editing an Enhanced Metafile	782
+		40.3  Functions	783
+	Chapter 41    Printing and Print Spooler	785
+		41.1  About Printing	786
+			41.1.1  Default Printing Interface	786
+			41.1.2  Printer Device Contexts	787
+			41.1.3  Printer Escapes	788
+			41.1.4  WYSIWYG Display and Output	789
+		41.2  Using the Printing Functions	789
+			41.2.1  Opening and Displaying a .BMP File	790
+			41.2.2  Displaying a Print Dialog Box and Retrieving a Printer Device Context	793
+			41.2.3  Preparing to Print	794
+			41.2.4  Printing a Document	797
+		41.3  Functions and Messages	804
+Index	807
