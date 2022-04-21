@@ -219,6 +219,12 @@ clean: cleanfinal
 cleanfinal:
 	$(RM) pdfstuff combined.pdf $(VOLS) combined.toc combined-toc.pdf win32api.pdf \
 		$(VOLS:.pdf=-toc.pdf) $(VOLS:.pdf=.tmp.pdf) \
-		combined12.pdf combined345.pdf win32api1.pdf win32api2.pdf
+		combined12.pdf combined345.pdf win32api1.pdf win32api2.pdf \
+		c90.pdf
 extract:
 	bsdtar -xf Disk01.iso -C source --strip-components=2 DOC/SDK/WIN32API
+
+c90.pdf: source/ansi-iso-9899-1990-1.pdf c90.num c90.toc pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read $< --num c90.num --toc c90.toc \
+		--title "ANSI/ISO 9899-1990" \
+		--write $@

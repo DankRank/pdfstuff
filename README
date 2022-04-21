@@ -1,15 +1,20 @@
-Tools for generating a nice Windows NT Programmer's Reference PDF file
+Tools and data for improving some (specific) PDF files.
 
-The command pdfstuff here might be useful for those who want to add tocs to existing
-PDFs.
+The command pdfstuff here might be useful for those who want to add tocs to
+existing PDFs.
 
 == How to use ==
 $ apt install build-essential wine ghostscript libpodofo-dev
 
+Windows NT Programmer's Reference:
 Get the SDK ISO here https://winworldpc.com/product/windows-sdk-ddk/nt-3x
 Copy the DOC/SDK/WIN32API directory to source/WIN32API (or if you have bsdtar
 installed you can just place Disk01.iso in this directory and run make extract)
 Run make
+
+C90 standard:
+Place it here: source/ansi-iso-9899-1990-1.pdf
+Run make c90.pdf
 
 == pdfstuff usage ==
 The program runs commands from its arguments from left to right. List of

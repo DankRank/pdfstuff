@@ -1,0 +1,181 @@
+1  Scope	1
+2  Normative references	1
+3  Definitions and conventions	2
+4  Compliance	3
+5  Environment	5
+	5.1  Conceptual models	5
+		5.1.1  Translation environment	5
+		5.1.2  Execution environments	6
+	5.2  Environmental considerations	10
+		5.2.1  Character sets	10
+		5.2.2  Character display semantics	12
+		5.2.3  Signals and interrupts	12
+		5.2.4  Environmental limits	12
+6  Language	18
+	6.1  Lexical elements	18
+		6.1.1  Keywords	19
+		6.1.2  Identifiers	19
+		6.1.3  Constants	25
+		6.1.4  String literals	30
+		6.1.5  Operators	31
+		6.1.6  Punctuators	32
+		6.1.7  Header names	32
+		6.1.8  Preprocessing numbers	33
+		6.1.9  Comments	33
+	6.2  Conversions	34
+		6.2.1  Arithmetic operands	34
+		6.2.2  Other operands	36
+	6.3  Expressions	38
+		6.3.1  Primary expressions	39
+		6.3.2  Postfix operators	39
+		6.3.3  Unary operators	43
+		6.3.4  Cast operators	45
+		6.3.5  Multiplicative operators	46
+		6.3.6  Additive operators	46
+		6.3.7  Bitwise shift operators	48
+		6.3.8  Relational operators	48
+		6.3.9  Equality operators	49
+		6.3.10  Bitwise AND operator	50
+		6.3.11  Bitwise exclusive OR operator	50
+		6.3.12  Bitwise inclusive OR operator	50
+		6.3.13  Logical AND operator	51
+		6.3.14  Logical OR operator	51
+		6.3.15  Conditional operator	51
+		6.3.16  Assignment operators	53
+		6.3.17  Comma operator	54
+	6.4  Constant expressions	55
+	6.5  Declarations	57
+		6.5.1  Storage-class specifiers	58
+		6.5.2  Type specifiers	58
+		6.5.3  Type qualifiers	64
+		6.5.4  Declarators	65
+		6.5.5  Type names	69
+		6.5.6  Type definitions	70
+		6.5.7  Initialization	71
+	6.6  Statements	75
+		6.6.1  Labeled statements	75
+		6.6.2  Compound statement, or block	75
+		6.6.3  Expression and null statements	76
+		6.6.4  Selection statements	77
+		6.6.5  Iteration statements	78
+		6.6.6  Jump statements	79
+	6.7  External definitions	81
+		6.7.1  Function definitions	81
+		6.7.2  External object definitions	83
+	6.8  Preprocessing directives	85
+		6.8.1  Conditional inclusion	86
+		6.8.2  Source file inclusion	87
+		6.8.3  Macro replacement	89
+		6.8.4  Line control	93
+		6.8.5  Error directive	93
+		6.8.6  Pragma directive	93
+		6.8.7  Null directive	94
+		6.8.8  Predefined macro names	94
+	6.9  Future language directions	95
+		6.9.1  External names	95
+		6.9.2  Character escape sequences	95
+		6.9.3  Storage-class specifiers	95
+		6.9.4  Function declarators	95
+		6.9.5  Function definitions	95
+		6.9.6  Array parameters	95
+7  Library	96
+	7.1  Introduction	96
+		7.1.1  Definition of terms	96
+		7.1.2  Standard headers	96
+		7.1.3  Reserved identifiers	97
+		7.1.4  Errors <errno.h>	97
+		7.1.5  Limits <float.h> and <limits.h>	98
+		7.1.6  Common definitions <stddef.h>	98
+		7.1.7  Use of library functions	99
+	7.2  Diagnostics <assert.h>	101
+		7.2.1  Program diagnostics	101
+	7.3  Character handling <ctype.h>	102
+		7.3.1  Character testing functions	102
+		7.3.2  Character case mapping functions	104
+	7.4  Localization <locale.h>	106
+		7.4.1  Locale control	107
+		7.4.2  Numeric formatting convention inquiry	108
+	7.5  Mathematics <math.h>	111
+		7.5.1  Treatment of error conditions	111
+		7.5.2  Trigonometric functions	111
+		7.5.3  Hyperbolic functions	113
+		7.5.4  Exponential and logarithmic functions	114
+		7.5.5  Power functions	115
+		7.5.6  Nearest integer, absolute value, and remainder functions	116
+	7.6  Nonlocal jumps <setjmp.h>	118
+		7.6.1  Save calling environment	118
+		7.6.2  Restore calling environment	119
+	7.7  Signal handling <signal.h>	120
+		7.7.1  Specify signal handling	120
+		7.7.2  Send signal	121
+	7.8  Variable arguments <stdarg.h>	122
+		7.8.1  Variable argument list access macros	122
+	7.9  Input/output <stdio.h>	124
+		7.9.1  Introduction	124
+		7.9.2  Streams	125
+		7.9.3  Files	126
+		7.9.4  Operations on files	127
+		7.9.5  File access functions	128
+		7.9.6  Formatted input/output functions	131
+		7.9.7  Character input/output functions	141
+		7.9.8  Direct input/output functions	144
+		7.9.9  File positioning functions	145
+		7.9.10  Error-handling functions	147
+	7.10  General utilities <stdlib.h>	149
+		7.10.1  String conversion functions	149
+		7.10.2  Pseudo-random sequence generation functions	153
+		7.10.3  Memory management functions	154
+		7.10.4  Communication with the environment	155
+		7.10.5  Searching and sorting utilities	157
+		7.10.6  Integer arithmetic functions	158
+		7.10.7  Multibyte character functions	159
+		7.10.8  Multibyte string functions	161
+	7.11  String handling <string.h>	162
+		7.11.1  String function conventions	162
+		7.11.2  Copying functions	162
+		7.11.3  Concatenation functions	163
+		7.11.4  Comparison functions	164
+		7.11.5  Search functions	165
+		7.11.6  Miscellaneous functions	168
+	7.12  Date and time <time.h>	170
+		7.12.1  Components of time	170
+		7.12.2  Time manipulation functions	170
+		7.12.3  Time conversion functions	172
+	7.13  Future library directions	176
+		7.13.1  Errors <errno.h>	176
+		7.13.2  Character handling <ctype.h>	176
+		7.13.3  Localization <locale.h>	176
+		7.13.4  Mathematics <math.h>	176
+		7.13.5  Signal handling <signal.h>	176
+		7.13.6  Input/output <stdio.h>	176
+		7.13.7  General utilities <stdlib.h>	176
+		7.13.8  String handling <string.h>	176
+A  Bibliography	177
+B  Language syntax summary	178
+	B.1  Lexical grammar	178
+	B.2  Phase structure grammar	182
+	B.3  Preprocessing directives	187
+C  Sequence points	189
+D  Library summary	190
+	D.1  Errors <errno.h>	190
+	D.2  Common definitions <stddef.h>	190
+	D.3  Diagnostics <assert.h>	190
+	D.4  Character handling <ctype.h>	190
+	D.5  Localization <locale.h>	190
+	D.6  Mathematics <math.h>	191
+	D.7  Nonlocal jumps <setjmp.h>	191
+	D.8  Signal handling <signal.h>	191
+	D.9  Variable arguments <stdarg.h>	192
+	D.10  Input/output <stdio.h>	192
+	D.11  General utilities <stdlib.h>	194
+	D.12  String handling <string.h>	195
+	D.13  Date and time <time.h>	195
+E  Implementation limits	196
+F  Common warnings	198
+G  Portability issues	199
+	G.1  Unspecified behavior	199
+	G.2  Undefined behavior	200
+	G.3  Implementation-defined behavior	204
+	G.4  Locale-specific behavior	207
+	G.5  Common extensions	208
+Index	210
