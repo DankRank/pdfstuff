@@ -1,11 +1,9 @@
 expand
 nomarks
 pdfbase
-pdfcrop
 expand.dir
 nomarks.dir
 pdfbase.dir
-pdfcrop.dir
 *.pdf
 combined.toc
 simplified.toc

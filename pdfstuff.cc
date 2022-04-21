@@ -218,6 +218,27 @@ int main(int argc, const char *argv[]) {
 				}
 				doc->SetPageMode(ePdfPageModeUseBookmarks);
 			}}},
+			{"--box", {5, true, [&doc](const char **args) {
+				std::unordered_map<string_view, string_view> keynames = {
+					{"media", "MediaBox"},
+					{"crop", "CropBox"},
+					{"bleed", "BleedBox"},
+					{"trim", "TrimBox"},
+					{"art", "ArtBox"},
+				};
+				auto it = keynames.find(args[0]);
+				if (it == keynames.end()) {
+					std::cerr << "Unknown box type" << args[0] << '\n';
+					return;
+				}
+				PdfName key = &it->second[0];
+				PdfRect r(atol(args[1])/100., atol(args[2])/100., atol(args[3])/100., atol(args[4])/100.);
+				PdfObject obj;
+				r.ToVariant(obj);
+				int pages = doc->GetPageCount();
+				for (int i = 0; i < pages; i++)
+					doc->GetPage(i)->GetObject()->GetDictionary().AddKey(key, obj);
+			}}},
 		};
 		
 		for (int i = 1; i < argc; i++) {
@@ -242,6 +263,6 @@ int main(int argc, const char *argv[]) {
 			delete doc;
 	} catch (PdfError& e) {
 		e.PrintErrorMsg();
-        return 1;
+		return 1;
 	}
 }

@@ -4,7 +4,7 @@ The command pdfstuff here might be useful for those who want to add tocs to exis
 PDFs.
 
 == How to use ==
-$ apt install build-essential wine ghostscript libpodofo-dev libpodofo-utils
+$ apt install build-essential wine ghostscript libpodofo-dev
 
 Get the SDK ISO here https://winworldpc.com/product/windows-sdk-ddk/nt-3x
 Copy the DOC/SDK/WIN32API directory to source/WIN32API (or if you have bsdtar
@@ -23,6 +23,7 @@ commands:
 --title [title] : sets the document title
 --num [file]    : reads page labels from a file
 --toc [file]    : reads toc from a file
+--box n l b w h : same as a podofobox command
 
 num files look like:
     prefix<TAB>page number<TAB>page index

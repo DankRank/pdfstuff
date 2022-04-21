@@ -65,11 +65,11 @@ VOL5 := \
 	MACROS1  \
 	DDE1
 
-VOL1_FILES:=$(addsuffix .PDF,$(addprefix pdfcrop/WIN32API/VOLI/,$(VOL1))) 
-VOL2_FILES:=$(addsuffix .PDF,$(addprefix pdfcrop/WIN32API/VOLII/,$(VOL2))) 
-VOL3_FILES:=$(addsuffix .PDF,$(addprefix pdfcrop/WIN32API/VOLIII/,$(VOL3))) 
-VOL4_FILES:=$(addsuffix .PDF,$(addprefix pdfcrop/WIN32API/VOLIV/,$(VOL4))) 
-VOL5_FILES:=$(addsuffix .PDF,$(addprefix pdfcrop/WIN32API/VOLV/,$(VOL5))) 
+VOL1_FILES:=$(addsuffix .PDF,$(addprefix pdfbase/WIN32API/VOLI/,$(VOL1))) 
+VOL2_FILES:=$(addsuffix .PDF,$(addprefix pdfbase/WIN32API/VOLII/,$(VOL2))) 
+VOL3_FILES:=$(addsuffix .PDF,$(addprefix pdfbase/WIN32API/VOLIII/,$(VOL3))) 
+VOL4_FILES:=$(addsuffix .PDF,$(addprefix pdfbase/WIN32API/VOLIV/,$(VOL4))) 
+VOL5_FILES:=$(addsuffix .PDF,$(addprefix pdfbase/WIN32API/VOLV/,$(VOL5))) 
 VOLS:=vol1.pdf vol2.pdf vol3.pdf vol4.pdf vol5.pdf
 
 # These are extracted by the expand.dir rule
@@ -80,16 +80,16 @@ VOLS:=vol1.pdf vol2.pdf vol3.pdf vol4.pdf vol5.pdf
 # visible difference. (One of the special chars is missing in the original)
 all: \
 	pdfstuff \
-	pdfcrop/WIN32API/VOLI/II.PDF \
-	pdfcrop/WIN32API/VOLI/691.PDF \
-	pdfcrop/WIN32API/VOLII/II.PDF \
-	pdfcrop/WIN32API/VOLII/682.PDF \
-	pdfcrop/WIN32API/VOLII/TEST.PDF \
-	pdfcrop/WIN32API/VOLIII/II.PDF \
-	pdfcrop/WIN32API/VOLIV/II.PDF \
-	pdfcrop/WIN32API/VOLV/II.PDF \
-	pdfcrop/WIN32API/VOLV/565.PDF \
-	pdfcrop/WIN32API/VOLV/591.PDF \
+	pdfbase/WIN32API/VOLI/II.PDF \
+	pdfbase/WIN32API/VOLI/691.PDF \
+	pdfbase/WIN32API/VOLII/II.PDF \
+	pdfbase/WIN32API/VOLII/682.PDF \
+	pdfbase/WIN32API/VOLII/TEST.PDF \
+	pdfbase/WIN32API/VOLIII/II.PDF \
+	pdfbase/WIN32API/VOLIV/II.PDF \
+	pdfbase/WIN32API/VOLV/II.PDF \
+	pdfbase/WIN32API/VOLV/565.PDF \
+	pdfbase/WIN32API/VOLV/591.PDF \
 	$(VOLS:.pdf=-toc.pdf) \
 	combined-toc.pdf \
 	win32api.pdf
@@ -103,26 +103,31 @@ combined.pdf: $(VOLS) | pdfstuff
 vol1.pdf: $(VOL1_FILES) | pdfstuff
 	@$(info CONCAT   $@) \
 	./pdfstuff $(addprefix --append ,$(VOL1_FILES)) \
+		--box media 4050 7200 53100 64800 \
 		--title "Programmer's Reference, Volume 1" \
 		--write $@
 vol2.pdf: $(VOL2_FILES) | pdfstuff
 	@$(info CONCAT   $@) \
 	./pdfstuff $(addprefix --append ,$(VOL2_FILES)) \
+		--box media 4050 7200 53100 64800 \
 		--title "Programmer's Reference, Volume 2" \
 		--write $@
 vol3.pdf: $(VOL3_FILES) | pdfstuff
 	@$(info CONCAT   $@) \
 	./pdfstuff $(addprefix --append ,$(VOL3_FILES)) \
+		--box media 4050 7200 53100 64800 \
 		--title "Programmer's Reference, Volume 3" \
 		--write $@
 vol4.pdf: $(VOL4_FILES) | pdfstuff
 	@$(info CONCAT   $@) \
 	./pdfstuff $(addprefix --append ,$(VOL4_FILES)) \
+		--box media 4050 7200 53100 64800 \
 		--title "Programmer's Reference, Volume 4" \
 		--write $@
 vol5.pdf: $(VOL5_FILES) | pdfstuff
 	@$(info CONCAT   $@) \
 	./pdfstuff $(addprefix --append ,$(VOL5_FILES)) \
+		--box media 4050 7200 53100 64800 \
 		--title "Programmer's Reference, Volume 5" \
 		--write $@
 
@@ -158,16 +163,13 @@ combined.toc: combinedtoc.sh $(VOLS:.pdf=.toc)
 simplified.toc: simplifiedtoc.sh combined.toc expand.dir
 	@$(info GENTOC   $@)./simplifiedtoc.sh >$@
 
-.PRECIOUS: nomarks/%.PS pdfbase/%.PDF pdfcrop/%.PDF
+.PRECIOUS: nomarks/%.PS pdfbase/%.PDF
 nomarks/%.PS: nomarks.dir expand.dir
 	@$(info NOMARKS  $@) \
 	sed '/^DoCropMarks/d;/^DoPageBox/d' <$(patsubst nomarks/%,expand/%,$@) >$@
 pdfbase/%.PDF: nomarks/%.PS pdfbase.dir
 	@$(info PDF2PS   $@) \
 	ps2pdf13 $< $@
-pdfcrop/%.PDF: pdfbase/%.PDF  pdfcrop.dir
-	@$(info CROP     $@) \
-	podofobox $< $@ media 4050 7200 53100 64800
 
 MAKEDIRS=@$(info MAKEDIRS $(@:.dir=))mkdir -p \
 		$(@:.dir=)/WIN32API/VOLI \
@@ -194,13 +196,10 @@ nomarks.dir:
 pdfbase.dir:
 	$(MAKEDIRS)
 	@touch $@
-pdfcrop.dir:
-	$(MAKEDIRS)
-	@touch $@
 
 clean: cleanfinal
-	$(RM) -r expand nomarks pdfbase pdfcrop
-	$(RM) expand.dir nomarks.dir pdfbase.dir pdfcrop.dir
+	$(RM) -r expand nomarks pdfbase
+	$(RM) expand.dir nomarks.dir pdfbase.dir
 cleanfinal:
 	$(RM) pdfstuff combined.pdf $(VOLS) combined.toc combined-toc.pdf win32api.pdf $(VOLS:.pdf=-toc.pdf)
 extract:
