@@ -1,0 +1,113 @@
+About This Manual	ix
+1  Introduction	1
+	1.1  Introduction	3
+	1.2  Notational Conventions	3
+	1.3  Naming Conventions	4
+	1.4  Data Types	4
+	1.5  Windows Calling Convention	5
+	1.6  Near and Far Pointers	6
+2  Window Functions	7
+	2.1  Introduction	9
+	2.2  Main Function	9
+	2.3  Message Functions	10
+	2.4  Window Function	20
+	2.5  Default Window Function	21
+	2.6  Window Class Functions	22
+	2.7  Window Creation Functions	26
+	2.8  Window Display and Movement Functions	32
+	2.9  Dialog Box Functions	39
+	2.10  Clipboard Functions	47
+	2.11  Input Functions	55
+	2.12  Menu Functions	61
+	2.13  Window Painting Functions	70
+	2.14  Scrolling Functions	77
+	2.15  Property List Functions	81
+	2.16  Window Attribute Functions	84
+	2.17  Error Functions	87
+	2.18  Cursor Functions	90
+	2.19  Caret Functions	92
+	2.20  Coordinate Functions	95
+	2.21  Rectangle Functions	97
+	2.22  System Information Functions	100
+	2.23  Window Hook Function	103
+3  GDI Functions	105
+	3.1  Introduction	107
+	3.2  Display Context Functions	107
+	3.3  Output Functions	110
+	3.4  Drawing Object Functions	127
+	3.5  Select Functions	138
+	3.6  Display Context Attribute Functions	140
+	3.7  Clipping Region Functions	159
+	3.8  Region Functions	162
+	3.9  Text Justification Functions	165
+	3.10  Metafile Functions	168
+	3.11  Control Functions	171
+	3.12  GDI Information Functions	180
+	3.13  Conversion Functions	187
+4  System Resource Functions	189
+	4.1  Introduction	191
+	4.2  Module Manager Functions	191
+	4.3  Memory Manager Functions	196
+	4.4  Task Functions	208
+	4.5  Resource Manager Functions	207
+	4.6  String Translation Functions	217
+	4.7  Atom Manager Functions	219
+	4.8  Windows Initialization File Functions	222
+	4.9  Debugging Function	225
+	4.10  Communication Functions	225
+	4.11  Sound Functions	235
+	4.12  Utility Functions	242
+	4.13  File I/O Functions	245
+5  Data Types and Structures	249
+	5.1  Introduction	251
+	5.2  Data Types	251
+	5.3  Window Data Structures	254
+	5.4  GDI Data Structures	259
+	5.5  Communication Data Structures	272
+	5.6  Open File Structure	277
+6  File Formats	279
+	6.1  Introduction	281
+	6.2  Resource Script File	281
+	6.3  Module Definition File	311
+	6.4  Windows Initialization File	318
+7  Assembly Language Macros	325
+	7.1  Introduction	327
+	7.2  CMACROS.INC File	327
+	7.3  Cmacros Options	327
+	7.4  Segment Macros	331
+	7.5  Using the Cmacros	346
+8  Window Messages	349
+	8.1  Introduction	351
+	8.2  Window Management Messages	352
+	8.3  Initialization Messages	362
+	8.4  Input Messages	364
+	8.5  System Messages	377
+	8.6  Clipboard Messages	381
+	8.7  System Information Messages	386
+	8.8  Control Messages	388
+	8.9  Notification Messages	401
+	8.10  Scroll Bar Messages	402
+	8.11  Non-Client Area Messages	402
+A  Raster Operation Codes And Definitions	409
+	A.1  Introduction	411
+	A.2  Operation Codes	412
+B  Virtual Key Code Summary	419
+C  Font Files	423
+	C.1  Introduction	425
+	C.2  Font Files Formats	425
+	C.3  ANSI Character Set	432
+Index	433
+Tables	vii
+	Table 2.1  Window Styles	28
+	Table 2.2  Virtual Keys	57
+	Table 2.3  ChangeMenu Flags	64
+	Table 3.1  Raster Operation Values	145
+	Table 3.2  GDI Functions and Metafiles	168
+	Table 3.3  GDI Information Indexes	183
+	Table 4.1  Communications Driver Error Codes	230
+	Table 6.1  Control Classes	300
+	Table 6.2  Control Styles	302
+	Table 7.1  Memory Options	328
+	Table 7.2  Calling Conventions	329
+	Table 7.3  Prolog/Epilog Code Options	330
+	Table C.1  ANSI Character Set for Window	432

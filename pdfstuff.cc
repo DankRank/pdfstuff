@@ -174,6 +174,10 @@ int main(int argc, const char *argv[]) {
 				}
 				doc->GetCatalog()->GetDictionary().AddKey("PageLabels", labels.make_obj());
 			}}},
+			{"--toc-clear", {0, true, [&doc](const char **args) {
+				(void)args;
+				doc->GetCatalog()->GetDictionary().RemoveKey("Outlines");
+			}}},
 			{"--toc", {1, true, [&doc, &labels](const char **args) {
 				PdfObject obj;
 				std::stack<PdfOutlineItem*> s;
