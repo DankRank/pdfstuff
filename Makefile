@@ -92,13 +92,25 @@ all: \
 	pdfbase/WIN32API/VOLV/591.PDF \
 	$(VOLS:.pdf=-toc.pdf) \
 	combined-toc.pdf \
-	win32api.pdf
+	win32api.pdf \
+	win32api1.pdf \
+	win32api2.pdf
 
 # This is fairly slow, so don't redo it on every pdfstuff update.
 combined.pdf: $(VOLS) | pdfstuff
 	@$(info CONCAT   $@) \
 	./pdfstuff $(addprefix --append ,$(VOLS)) \
 		--title "Programmer's Reference" \
+		--write $@
+combined12.pdf: vol1.pdf vol2.pdf | pdfstuff
+	@$(info CONCAT   $@) \
+	./pdfstuff $(addprefix --append ,vol1.pdf vol2.pdf) \
+		--title "Programmer's Reference, Volumes 1 & 2" \
+		--write $@
+combined345.pdf: vol3.pdf vol4.pdf vol5.pdf | pdfstuff
+	@$(info CONCAT   $@) \
+	./pdfstuff $(addprefix --append ,vol3.pdf vol4.pdf vol5.pdf) \
+		--title "Programmer's Reference, Volumes 3, 4 & 5" \
 		--write $@
 vol1.pdf: $(VOL1_FILES) | pdfstuff
 	@$(info CONCAT   $@) \
@@ -157,6 +169,14 @@ combined-toc.pdf: combined.num combined.toc combined.pdf pdfstuff
 win32api.pdf: combined.num simplified.toc combined.pdf pdfstuff
 	@$(info ADDTOC   $@) \
 	./pdfstuff --read combined.pdf --num combined.num --toc simplified.toc --write $@
+win32api1.pdf: combined12.num simplified.toc combined12.pdf pdfstuff
+	@$(info ADDTOC   $@) \
+	sed '/III-1$$/,$$d' <simplified.toc | \
+	./pdfstuff --read combined12.pdf --num combined12.num --toc /dev/stdin --write $@
+win32api2.pdf: combined345.num simplified.toc combined345.pdf pdfstuff
+	@$(info ADDTOC   $@) \
+	sed -n '/III-1$$/,$$p' <simplified.toc | \
+	./pdfstuff --read combined345.pdf --num combined345.num --toc /dev/stdin --write $@
 
 combined.toc: combinedtoc.sh $(VOLS:.pdf=.toc)
 	@$(info GENTOC   $@)./combinedtoc.sh >$@
@@ -201,6 +221,7 @@ clean: cleanfinal
 	$(RM) -r expand nomarks pdfbase
 	$(RM) expand.dir nomarks.dir pdfbase.dir
 cleanfinal:
-	$(RM) pdfstuff combined.pdf $(VOLS) combined.toc combined-toc.pdf win32api.pdf $(VOLS:.pdf=-toc.pdf)
+	$(RM) pdfstuff combined.pdf $(VOLS) combined.toc combined-toc.pdf win32api.pdf $(VOLS:.pdf=-toc.pdf) \
+		combined12.pdf combined345.pdf win32api1.pdf win32api2.pdf
 extract:
 	bsdtar -xf Disk01.iso -C source --strip-components=2 DOC/SDK/WIN32API
