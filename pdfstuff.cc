@@ -1,6 +1,7 @@
 #include <limits.h>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -66,6 +67,42 @@ int parse_decimal(string_view sv) {
 			return -1;
 	return x;
 }
+// Algorithm by Knuth
+void write_roman(std::stringstream &ss, int n, bool is_upper) {
+	const char *j, *k;
+	unsigned u, v;
+	j = is_upper ? "M2D5C2L5X2V5I" : "m2d5c2l5x2v5i";
+	v = 1000;
+	for (;;) {
+		while ((unsigned)n >= v)
+			ss << *j, n -= v;
+		if (n <= 0)
+			return;
+		k = j + 2, u = v / (k[-1]-'0');
+		if (k[-1] == '2')
+			k += 2, u /= k[-1]-'0';
+		if (n + u >= v)
+			ss << *k, n += u;
+		else
+			j += 2, v /= j[-1]-'0';
+	}
+}
+void write_alpha(std::stringstream &ss, int n, bool is_upper) {
+	if (n <= 0)
+		return;
+	int base = 1;
+	int len = 26;
+	while (n >= base + len) {
+		base += len;
+		len *= 26;
+	}
+	n -= base;
+	while (len > 1) {
+		len /= 26;
+		ss << (char)((n / len) + (is_upper ? 'A' : 'a'));
+		n %= len;
+	}
+}
 struct PageLabelRange {
 	enum class Type {
 		None = '\0',
@@ -75,10 +112,10 @@ struct PageLabelRange {
 		AlphaUpper = 'A',
 		AlphaLower = 'a',
 	};
-	Type type;
-	string prefix;
+	Type type = Type::None;
+	string prefix = "";
 	int start_idx;
-	int start_no;
+	int start_no = 1;
 	int len;
 	PdfObject make_obj() const {
 		PdfDictionary dict;
@@ -108,6 +145,40 @@ struct PageLabelRange {
 		if (num < start_no || num >= start_no+len)
 			return -1;
 		return num-start_no+start_idx;
+	}
+	int read_obj(int idx, const PdfDictionary& dict) {
+		start_idx = idx;
+		if (dict.HasKey("S")) {
+			PdfName s = dict.GetKey("S")->GetName();
+			if (s.GetLength() != 1)
+				return -1;
+			switch (s.GetName()[0]) {
+				case 'D': case 'R': case 'r': case 'A': case 'a':
+					type = (Type)s.GetName()[0];
+					break;
+				default:
+					return -1;
+			}
+		}
+		if (dict.HasKey("P"))
+			prefix = dict.GetKey("P")->GetString().GetString();
+		if (dict.HasKey("St"))
+			start_no = dict.GetKey("St")->GetNumber();
+		len = INT_MAX-start_idx;
+		return 0;
+	}
+	string encode(int pageno) const {
+		std::stringstream ss;
+		ss << prefix;
+		switch (type) {
+			case Type::None: break;
+			case Type::Decimal: ss << pageno; break;
+			case Type::RomanUpper: write_roman(ss, pageno, true); break;
+			case Type::RomanLower: write_roman(ss, pageno, false); break;
+			case Type::AlphaUpper: write_alpha(ss, pageno, true); break;
+			case Type::AlphaLower: write_alpha(ss, pageno, false); break;
+		}
+		return ss.str();
 	}
 };
 struct PageLabels {
@@ -163,7 +234,35 @@ struct PageLabels {
 			v.back().len = r.start_idx - v.back().start_idx;
 		v.push_back(r);
 	}
+	void walk(const PdfDictionary &dict) {
+		if (dict.HasKey("Kids")) {
+			for (const PdfObject &obj : dict.MustGetKey("Kids").GetArray())
+				walk(obj.GetOwner()->MustGetObject(obj.GetReference())->GetDictionary());
+		} else {
+			const PdfArray &arr = dict.MustGetKey("Nums").GetArray();
+			for (auto it = arr.begin(); it != arr.end(); ++it) {
+				int idx = it->GetNumber();
+				if (++it == arr.end())
+					break;
+				const PdfDictionary &d = it->GetDictionary();
+				PageLabelRange r;
+				if (r.read_obj(idx, d) != -1)
+					v.push_back(r);
+			}
+		}
+	}
 };
+void walk_outline(int level, PdfOutlineItem *outline) {
+	while (outline) {
+		for (int i = 0; i < level; i++)
+			std::cout << '\t';
+		PdfDocument *doc = outline->GetObject()->GetOwner()->GetParentDocument();
+		std::cout << outline->GetTitle().GetString() << '\t'
+			<< outline->GetDestination(doc)->GetPage(doc)->GetPageNumber() << '\n';
+		walk_outline(level+1, outline->First());
+		outline = outline->Next();
+	}
+}
 int main(int argc, const char *argv[]) {
 	try {
 		PdfError::EnableLogging(false);
@@ -201,6 +300,13 @@ int main(int argc, const char *argv[]) {
 			{"--title", {1, true, [&doc](const char **args) {
 				doc->GetInfo()->SetTitle(*args);
 			}}},
+			{"--num-dump", {0, true, [&doc](const char **args) {
+				(void)args;
+				PageLabels labels;
+				labels.walk(doc->GetCatalog()->GetDictionary().MustGetKey("PageLabels").GetDictionary());
+				for (const auto &r : labels.v)
+					std::cout << r.prefix << '\t' << r.encode(r.start_no) << '\t' << r.start_no << '\n';
+			}}},
 			{"--num", {1, true, [&doc, &labels](const char **args) {
 				labels = PageLabels();
 				if (std::ifstream f(*args); f) {
@@ -214,6 +320,13 @@ int main(int argc, const char *argv[]) {
 				if (doc->GetPdfVersion() < ePdfVersion_1_3)
 					doc->SetPdfVersion(ePdfVersion_1_3);
 				doc->GetCatalog()->GetDictionary().AddKey("PageLabels", labels.make_obj());
+			}}},
+			{"--toc-dump", {0, true, [&doc](const char **args) {
+				(void)args;
+				PdfOutlineItem *outline = doc->GetOutlines(ePdfDontCreateObject);
+				// TODO: use PageLabels
+				if (outline)
+					walk_outline(0, outline->First());
 			}}},
 			{"--toc-clear", {0, true, [&doc](const char **args) {
 				(void)args;
