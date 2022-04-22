@@ -185,6 +185,8 @@ int main(int argc, const char *argv[]) {
 				} else {
 					std::cerr << "Couldn't open " << *args << '\n';
 				}
+				if (doc->GetPdfVersion() < ePdfVersion_1_3)
+					doc->SetPdfVersion(ePdfVersion_1_3);
 				doc->GetCatalog()->GetDictionary().AddKey("PageLabels", labels.make_obj());
 			}}},
 			{"--toc-clear", {0, true, [&doc](const char **args) {
