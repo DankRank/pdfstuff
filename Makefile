@@ -220,7 +220,7 @@ cleanfinal:
 	$(RM) pdfstuff combined.pdf $(VOLS) combined.toc combined-toc.pdf win32api.pdf \
 		$(VOLS:.pdf=-toc.pdf) $(VOLS:.pdf=.tmp.pdf) \
 		combined12.pdf combined345.pdf win32api1.pdf win32api2.pdf \
-		c90.pdf win103-7.pdf ewd123.pdf
+		c90.pdf win103-7.pdf ewd123.pdf knrc1.pdf
 extract:
 	bsdtar -xf source/Disk01.iso -C source --strip-components=2 DOC/SDK/WIN32API
 
@@ -238,4 +238,9 @@ ewd123.pdf: source/EWD123.PDF ewd123.num ewd123.toc pdfstuff
 		--title "Cooperating sequential processes (EWD123)"\
 		--write $@
 
-all2: all c90.pdf win103-7.pdf ewd123.pdf
+knrc1.pdf: source/The\ C\ Programming\ Language\ First\ Edition\ [UA-07].pdf knrc1.num knrc1.toc pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num knrc1.num --toc knrc1.toc \
+		--title "The C Programming Language (First Edition)" \
+		--write $@
+
+all2: all c90.pdf win103-7.pdf ewd123.pdf knrc1.pdf

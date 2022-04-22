@@ -345,13 +345,14 @@ int main(int argc, const char *argv[]) {
 							while (line[newlevel] == '\t')
 								newlevel++;
 							int pos = line.find('\t', newlevel);
-							string_view title = string_view(line).substr(newlevel, pos-newlevel);
+							string stitle = string(string_view(line).substr(newlevel, pos-newlevel));
+							pdf_utf8 *title = (pdf_utf8*)stitle.c_str();
 							string_view svpage = string_view(line).substr(pos+1);
 							int page = labels.decode(svpage);
 							if (page == -1)
 								std::cerr << "Couldn't decode page " << svpage << '\n';
 							if (newlevel == level) {
-								s.top() = s.top()->CreateNext(string(title),
+								s.top() = s.top()->CreateNext(title,
 									destination_from_page(doc, page, obj));
 							} else if (newlevel > level) {
 								while (newlevel > level+1) {
@@ -359,7 +360,7 @@ int main(int argc, const char *argv[]) {
 									std::cerr << "Missing toc level: " << title << '\n';
 									level++;
 								}
-								s.push(s.top()->CreateChild(string(title),
+								s.push(s.top()->CreateChild(title,
 									destination_from_page(doc, page, obj)));
 								level++;
 							} else {
@@ -367,7 +368,7 @@ int main(int argc, const char *argv[]) {
 									s.pop();
 									level--;
 								}
-								s.top() = s.top()->CreateNext(string(title),
+								s.top() = s.top()->CreateNext(title,
 									destination_from_page(doc, page, obj));
 							}
 						}

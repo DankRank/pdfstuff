@@ -25,6 +25,11 @@ Dijkstra's Cooperating sequential processes:
 - curl -o source/EWD123.pdf https://www.cs.utexas.edu/users/EWD/ewd01xx/EWD123.PDF
 - make ewd123.pdf
 
+K&R C:
+- curl -Lo "source/The C Programming Language First Edition [UA-07].pdf" "https://archive.org/download/TheCProgrammingLanguageFirstEdition/The%20C%20Programming%20Language%20First%20Edition%20%5BUA-07%5D.pdf"
+make tcpl
+- make knrc1.pdf
+
 == pdfstuff usage ==
 The program runs commands from its arguments from left to right. List of
 commands:
@@ -65,3 +70,6 @@ have that, it'll default to 1-based index.
 == Useful stuff ==
 The following oneliner was used for extracting the TOC
 cat expand/WIN32API/VOLI/FRONT1.PS | sed -n 's/^[^(]*(\([^.].*\)).*/\1/p' | awk 'BEGIN{x=0} /\/93$/{x=0} x==1{print} /Contents/{x=1}'
+
+Vim users might benefit from the following.
+:set spell list ft=
