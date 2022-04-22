@@ -43,6 +43,8 @@ int parse_roman(string_view sv) {
 }
 int parse_decimal(string_view sv) {
 	int x = 0;
+	if (sv.empty())
+		return -1;
 	for (char c : sv) 
 		if (c >= '0' && c <= '9')
 			x = 10*x + c-'0';
@@ -51,14 +53,20 @@ int parse_decimal(string_view sv) {
 	return x;
 }
 struct PageLabelRange {
-	bool is_roman;
+	enum class Type {
+		None,
+		Decimal,
+		RomanLower
+	};
+	Type type;
 	string prefix;
 	int start_idx;
 	int start_no;
 	int len;
 	PdfObject make_obj() const {
 		PdfDictionary dict;
-		dict.AddKey("S", PdfName(is_roman ? "r" : "D"));
+		if (type != Type::None)
+			dict.AddKey("S", PdfName(type == Type::RomanLower ? "r" : "D"));
 		if (!prefix.empty())
 			dict.AddKey("P", PdfString(prefix));
 		if (start_no != 1)
@@ -66,14 +74,15 @@ struct PageLabelRange {
 		return dict;
 	}
 	int decode(string_view sv) const {
-		if (prefix.size() >= sv.size() || sv.compare(0, prefix.size(), prefix))
+		if (prefix.size() > sv.size() || sv.compare(0, prefix.size(), prefix))
 			return -1;
 		sv.remove_prefix(prefix.size());
-		int num;
-		if (is_roman)
-			num = parse_roman(sv);
-		else
-			num = parse_decimal(sv);
+		int num = -1;
+		switch (type) {
+			case Type::RomanLower: num = parse_roman(sv); break;
+			case Type::Decimal: num = parse_decimal(sv); break;
+			case Type::None: num = sv.empty() ? 1 : -1; break;
+		}
 		if (num < start_no || num >= start_no+len)
 			return -1;
 		return num-start_no+start_idx;
@@ -110,12 +119,16 @@ struct PageLabels {
 		string_view svnumber = sv.substr(pos1+1, pos2-pos1-1);
 		string_view svindex = sv.substr(pos2+1);
 		PageLabelRange r;
+		using Type = PageLabelRange::Type;
 		if (svnumber[0] >= '0' && svnumber[0] <= '9') {
-			r.is_roman = false;
+			r.type = Type::Decimal;
 			r.start_no = parse_decimal(svnumber);
-		} else {
-			r.is_roman = true;
+		} else if (!svnumber.empty()) {
+			r.type = Type::RomanLower;
 			r.start_no = parse_roman(svnumber);
+		} else {
+			r.type = Type::None;
+			r.start_no = 1;
 		}
 		r.prefix = svprefix;
 		r.start_idx = parse_decimal(svindex) - 1;

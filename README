@@ -21,6 +21,10 @@ C90 standard:
 - Place it here: source/ansi-iso-9899-1990-1.pdf
 - Run make c90.pdf
 
+Dijkstra's Cooperating sequential processes:
+- curl -o source/EWD123.pdf https://www.cs.utexas.edu/users/EWD/ewd01xx/EWD123.PDF
+- make ewd123.pdf
+
 == pdfstuff usage ==
 The program runs commands from its arguments from left to right. List of
 commands:
