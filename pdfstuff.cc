@@ -24,10 +24,12 @@ PdfDestination destination_from_page(PdfDocument *doc, int pageIdx, PdfObject &o
 	obj = arr;
 	return PdfDestination(&obj, doc);
 }
-int parse_roman(string_view sv) {
+int parse_roman(string_view sv, bool is_upper) {
 	int m = 0, d = 0, c = 0, l = 0, x = 0, v = 0, i = 0;
 	int cd = 0, xl = 0, iv = 0;
 	for (char ch : sv) {
+		if (is_upper)
+			ch += 'a'-'A';
 		switch (ch) {
 			case 'm': m++; cd += c; c = 0; break;
 			case 'd': d++; cd += c; c = 0; break;
@@ -40,6 +42,18 @@ int parse_roman(string_view sv) {
 		}
 	}
 	return 1000*m + 500*d + 100*(c-cd) + 50*l + 10*(x-xl) + 5*v + 1*(i-iv);
+}
+int parse_alpha(string_view sv, bool is_upper) {
+	int x = 0;
+	for (char ch : sv) {
+		if (is_upper)
+			ch += 'a'-'A';
+		if (ch < 'a' || ch > 'z')
+			return -1;
+		x *= 26;
+		x += ch-'a'+1;
+	}
+	return x;
 }
 int parse_decimal(string_view sv) {
 	int x = 0;
@@ -54,9 +68,12 @@ int parse_decimal(string_view sv) {
 }
 struct PageLabelRange {
 	enum class Type {
-		None,
-		Decimal,
-		RomanLower
+		None = '\0',
+		Decimal = 'D',
+		RomanUpper = 'R',
+		RomanLower = 'r',
+		AlphaUpper = 'A',
+		AlphaLower = 'a',
 	};
 	Type type;
 	string prefix;
@@ -65,8 +82,10 @@ struct PageLabelRange {
 	int len;
 	PdfObject make_obj() const {
 		PdfDictionary dict;
-		if (type != Type::None)
-			dict.AddKey("S", PdfName(type == Type::RomanLower ? "r" : "D"));
+		if (type != Type::None) {
+			char s[2] = {(char)type};
+			dict.AddKey("S", PdfName(s));
+		}
 		if (!prefix.empty())
 			dict.AddKey("P", PdfString(prefix));
 		if (start_no != 1)
@@ -79,9 +98,12 @@ struct PageLabelRange {
 		sv.remove_prefix(prefix.size());
 		int num = -1;
 		switch (type) {
-			case Type::RomanLower: num = parse_roman(sv); break;
-			case Type::Decimal: num = parse_decimal(sv); break;
 			case Type::None: num = sv.empty() ? 1 : -1; break;
+			case Type::Decimal: num = parse_decimal(sv); break;
+			case Type::RomanUpper: num = parse_roman(sv, true); break;
+			case Type::RomanLower: num = parse_roman(sv, false); break;
+			case Type::AlphaUpper: num = parse_alpha(sv, true); break;
+			case Type::AlphaLower: num = parse_alpha(sv, false); break;
 		}
 		if (num < start_no || num >= start_no+len)
 			return -1;
@@ -123,9 +145,13 @@ struct PageLabels {
 		if (svnumber[0] >= '0' && svnumber[0] <= '9') {
 			r.type = Type::Decimal;
 			r.start_no = parse_decimal(svnumber);
+		} else if (svnumber[0] == '_') {
+			svnumber.remove_prefix(1);
+			r.type = svnumber[0] > 'A' && svnumber[0] < 'Z' ? Type::AlphaUpper : Type::AlphaLower;
+			r.start_no = parse_alpha(svnumber, r.type == Type::AlphaUpper);
 		} else if (!svnumber.empty()) {
-			r.type = Type::RomanLower;
-			r.start_no = parse_roman(svnumber);
+			r.type = svnumber[0] > 'A' && svnumber[0] < 'Z' ? Type::RomanUpper : Type::RomanLower;
+			r.start_no = parse_roman(svnumber, r.type == Type::RomanUpper);
 		} else {
 			r.type = Type::None;
 			r.start_no = 1;
@@ -145,7 +171,7 @@ int main(int argc, const char *argv[]) {
 		PdfMemDocument *doc = nullptr;
 		PageLabels labels;
 		labels.parse_line("\t1\t1");
-		
+
 		struct command {
 			int argn;
 			bool needs_doc;
@@ -259,7 +285,7 @@ int main(int argc, const char *argv[]) {
 					doc->GetPage(i)->GetObject()->GetDictionary().AddKey(key, obj);
 			}}},
 		};
-		
+
 		for (int i = 1; i < argc; i++) {
 			auto it = commands.find(argv[i]);
 			if (it != commands.end()) {
