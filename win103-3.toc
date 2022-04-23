@@ -1,0 +1,123 @@
+1  Introduction	1
+	1.1  Introduction	3
+	1.2  Development Kit Contents	3
+	1.3  About this Guide	4
+	1.4  What You Need	5
+	1.5  Backing Up Your Disks	6
+	1.6  Installing the Development Kit	7
+	1.7  Upgrading Your Development Environment to Version 1.03	11
+	1.8  Setting Up Windows	13
+	1.9  Tips for Improving the Windows Development Environment	15
+2  Cc, Pascal, and the Macro Assembler	19
+	2.1  Introduction	21
+	2.2  C-Language Applications	22
+	2.3  Pascal-Language Application	30
+	2.4  Assembly-Language Applications	33
+3  Resource Compiler: Rc	35
+	3.1  Introduction	37
+	3.2  Building the Resource Script File	37
+	3.3  Compiling Resources	40
+4  Windows Linker: Link4	43
+	4.1  Introduction	45
+	4.2  Creating Module Definition Files	45
+	4.3  Linking an Application	47
+	4.4  Creating Import Libraries	51
+	4.5  Examining Executable File Headers	52
+5  Symbolic Debugging Utility: Symdeb	53
+	5.1  Introduction	57
+	5.2  Preparing Symbol Files	58
+	5.3  Setting Up the Debugging Terminal	61
+	5.4  Starting Symdeb with Windows	63
+	5.5  Working with Symbol Maps	68
+	5.6  Starting the Application	71
+	5.7  Allocation Messages	71
+	5.8  Quitting Symdeb	74
+	5.9  Symdeb Commands	75
+6  A Program Maintainer: Make	107
+	6.1  Introduction	109
+	6.2  Using Make	109
+	6.3  Maintaining a Program: An Example	117
+7  Icon Editor	123
+	7.1  Introduction	125
+	7.2  Starting the Icon Editor	125
+	7.3  Drawing in the Drawing Box	127
+	7.4  Clearing the Drawing Box	128
+	7.5  Choosing the Editing Mode	128
+	7.6  Changing the Pen Color	129
+	7.7  Changing the Pen Size	130
+	7.8  Setting The Hotspot	130
+	7.9  Changing the Background Color	131
+	7.10  Displaying the Drawing Grid	132
+	7.11  Opening an Existing Icon, Cursor, or Bitmap File	132
+	7.12  Opening a New File	133
+	7.13  Saving Files	133
+	7.14  Icon Display	134
+8  Font Editor	135
+	8.1  Introduction	137
+	8.2  Starting the Font Editor	137
+	8.3  Opening a Font File	138
+	8.4  Font Editor Features	139
+	8.5  Selecting a Character to Edit	140
+	8.6  Changing Pixels in a Character	141
+	8.7  Canceling Changes to a Character	142
+	8.8  Changing a Character’s Width	142
+	8.9  Copying a Row of Pixels	143
+	8.10  Deleting a Row of Pixels	144
+	8.11  Copying a Column of Pixels	144
+	8.12  Deleting a Column of Pixels	145
+	8.13  Clearing the Character Window	145
+	8.14  Filling the Character Window with a Solid Block	146
+	8.15  Filling the Character Window with a Hatch	146
+	8.16  Inverting the Character Window	147
+	8.17  Reversing the Character Window	148
+	8.18  Copying or Pasting in the Character Window	148
+	8.19  Undoing a Change	149
+	8.20  Saving Changes to a Character	150
+	8.21  Resizing the Font	150
+	8.22  Changing a Font File’s Header Information	152
+	8.23  Saving a Font File	154
+	8.24  Editing Tips	155
+9  Dialog Editor	157
+	9.1  Introduction	159
+	9.2  Starting the Editor	160
+	9.3  Using the Size Window	161
+	9.4  Creating a Dialog Box	163
+	9.5  Adding and Deleting Controls	164
+	9.6  Changing Control Styles and Memory-Manager Flags	168
+	9.7  Defining User Access to Controls	173
+	9.8  Modifying a Dialog Box	177
+	9.9  Using the Edit Menu	178
+	9.10  Using Files with the Dialog Editor	179
+	9.11  Saving a Dialog Box	182
+10  Shaker and Heapwalker	183
+	10.1  Introduction	185
+	10.2  Testing Moveable Memory: Shaker	185
+	10.3  Viewing the Global Heap: Heapwalker	187
+A  Disk Contents	193
+	A.1  Disk Contents	195
+B  Diagnostic Messages	203
+C  C Run-time Functions	205
+Figures	vii
+	Figure 7.1  Icon Editor Window	126
+	Figure 7.2  Bitmap Mode Parameters Dialog Box	129
+	Figure 7.3  Open File Dialog Box	132
+	Figure 7.4  Save As Dialog Box	134
+	Figure 8.1  Font Editor Window	139
+	Figure 9.1  Dialog Editor Window	160
+	Figure 9.2  Size Window	162
+	Figure 9.3  Outline of a Dialog Box	164
+	Figure 9.4  Cursor Position for Moving a Group of Controls	167
+	Figure 9.5  Button Control Styles Dialog Box	169
+	Figure 9.6  Standard Styles Dialog Box	170
+	Figure 9.7  Resource Properties Dialog Box	172
+	Figure 9.8  Group/Control Ordering Dialog Box	173
+	Figure 9.9  View Include Dialog Box	181
+	Figure 10.1  Shaker Window with Show State On	185
+	Figure 10.2  Heapwalker Window after Walk Command	187
+Tables	viii
+	Table 5.1  Symdeb Commands	76
+	Table 5.2  Flag Values	80
+	Table 5.3  Unary Operators	83
+	Table 5.4  Binary Operators	83
+	Table B.1  Diagnostic Messages	203
+	Table C.1  C Run-time Functions	205

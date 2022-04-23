@@ -68,26 +68,26 @@ int parse_decimal(string_view sv) {
 	return x;
 }
 // Algorithm by Knuth
-void write_roman(std::stringstream &ss, int n, bool is_upper) {
+void write_roman(std::ostream &os, int n, bool is_upper) {
 	const char *j, *k;
 	unsigned u, v;
 	j = is_upper ? "M2D5C2L5X2V5I" : "m2d5c2l5x2v5i";
 	v = 1000;
 	for (;;) {
 		while ((unsigned)n >= v)
-			ss << *j, n -= v;
+			os << *j, n -= v;
 		if (n <= 0)
 			return;
 		k = j + 2, u = v / (k[-1]-'0');
 		if (k[-1] == '2')
 			k += 2, u /= k[-1]-'0';
 		if (n + u >= v)
-			ss << *k, n += u;
+			os << *k, n += u;
 		else
 			j += 2, v /= j[-1]-'0';
 	}
 }
-void write_alpha(std::stringstream &ss, int n, bool is_upper) {
+void write_alpha(std::ostream &os, int n, bool is_upper) {
 	if (n <= 0)
 		return;
 	int base = 1;
@@ -99,7 +99,7 @@ void write_alpha(std::stringstream &ss, int n, bool is_upper) {
 	n -= base;
 	while (len > 1) {
 		len /= 26;
-		ss << (char)((n / len) + (is_upper ? 'A' : 'a'));
+		os << (char)((n / len) + (is_upper ? 'A' : 'a'));
 		n %= len;
 	}
 }
@@ -298,7 +298,7 @@ int main(int argc, const char *argv[]) {
 					doc = new PdfMemDocument(*args);
 			}}},
 			{"--title", {1, true, [&doc](const char **args) {
-				doc->GetInfo()->SetTitle(*args);
+				doc->GetInfo()->SetTitle((const pdf_utf8*)*args);
 			}}},
 			{"--num-dump", {0, true, [&doc](const char **args) {
 				(void)args;
@@ -377,8 +377,24 @@ int main(int argc, const char *argv[]) {
 				}
 				doc->SetPageMode(ePdfPageModeUseBookmarks);
 			}}},
+			{"--pagemode", {1, true, [&doc](const char **args) {
+				static const std::unordered_map<string_view, EPdfPageMode> modenames = {
+					{"none", ePdfPageModeUseNone},
+					{"thumbs", ePdfPageModeUseThumbs},
+					{"outlines", ePdfPageModeUseBookmarks},
+					{"fullscreen", ePdfPageModeFullScreen},
+					{"oc", ePdfPageModeUseOC},
+					{"attachments", ePdfPageModeUseAttachments},
+				};
+				auto it = modenames.find(args[0]);
+				if (it == modenames.end()) {
+					std::cerr << "Unknown mode type" << args[0] << '\n';
+					return;
+				}
+				doc->SetPageMode(it->second);
+			}}},
 			{"--box", {5, true, [&doc](const char **args) {
-				std::unordered_map<string_view, string_view> keynames = {
+				static const std::unordered_map<string_view, string_view> keynames = {
 					{"media", "MediaBox"},
 					{"crop", "CropBox"},
 					{"bleed", "BleedBox"},

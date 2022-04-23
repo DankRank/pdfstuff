@@ -1,0 +1,131 @@
+Introduction	1
+Programmer's Reference	3
+Windows Update Directory	5
+Windows Functions	9
+	AdjustWindowRect Function	9
+	CallMsgFilter Function	10
+	PeekMessage Function	10
+	TranslateAccelerator Function	11
+	InSendMessage Function	11
+	GetClassWord Function	11
+	SetClassWord Function	12
+	CloseWindow Function	12
+	MoveWindow Function	12
+	EnumWindows Function	12
+	GetActiveWindow Function	12
+	IsChild Function	13
+	DialogBox Function	13
+	SetTimer Function	15
+	SwapMouseButton Function	15
+	ChangeMenu Function	16
+	ScrollWindow Function	16
+	SetScrollRange Function	17
+	GetScrollRange Function	17
+	SetCursor Function	17
+	SetCaretBlinkTime Function	17
+	GetCaretBlinkTime Function	18
+	SetRect Function	18
+	SetRectEmpty Function	18
+	CopyRect Function	18
+	InflateRect Function	18
+	OffsetRect Function	18
+GDI Functions	19
+	Polyline Function	19
+	GrayString Function	19
+	DrawIcon Function	19
+	LineDDA Function	19
+	FillRect Function	19
+	FrameRect Function	20
+	InvertRect Function	20
+	CreateHatchBrush Function	20
+	CreateFont Function	20
+	CreateDiscardableBitmap Function	20
+	SelectObject Function	21
+	SetRelAbs Function	22
+	EqualRgn Function	22
+	New Escape Functions	22
+		DEVICEDATA Escape Function	23
+		ENABLEPAIRKERNING Escape Function	24
+		ENABLERELATIVEWIDTHS Escape Function	25
+		EXTTEXTOUT Escape Function	26
+		GETEXTENDEDTEXTMETRICS Escape Function	27
+		GETEXTENTTABLE Escape Function	28
+		GETPAIRKERNTABLE Escape Function	29
+		GETTRACKKERNTABLE Escape Function	30
+		SELECTPAPERSOURCE Escape Function	31
+		SETCOPYCOUNT Escape Function	32
+		SETKERNTRACK Escape Function	33
+		STRETCHBLT Escape Function	34
+	EnumFonts Function	35
+	EnumObjects Function	35
+	GetDeviceCaps Function	36
+System Resource Functions	37
+	GetProcAddress Function	37
+	MakeProcInstance Function	37
+	FreeProcInstance Function	37
+	GlobalReAlloc Function	37
+	LockData Function	38
+	UnlockData Function	38
+	GlobalHandle Function	38
+	LocalHandle Function	38
+	LocalInit Function	39
+	LocalNotify Function	39
+	LockSegment Function	40
+	UnlockSegment Function	41
+	LockResource Function	41
+	GetAtomHandle Function	41
+	GetProfileInt Function	42
+	WriteComm Function	42
+	GetCommError Function	42
+	WaitSoundState Function	43
+	OpenFile Function	43
+Data Types and Structures	44
+	Bitmap Data Structure	44
+	EXTTEXTMETRIC Data Structure	45
+	KERNPAIR Data Structure	49
+	KERNTRACK Data Structure	50
+File Formats	53
+	CODE Statement	53
+	DATA Statement	54
+	SEGMENTS Statement	56
+	STUB Statement	58
+	Windows Section	58
+	Ports Section	58
+	Extensions Section	59
+Assembly-Language Macros	60
+	ExternX Statement	60
+	LabelX Statement	60
+Window Messages	61
+	WM_SIZEWAIT Message	61
+	WM_SYSTIMER Message	61
+	WM_CTLCOLOR Message	61
+	WM_SETREDRAW Message	62
+	WM_GETDLGCODE Message	62
+	WM_CANCELMODE Message	62
+	WM_INITDIALOG Message	63
+	WM_KEYDOWN Message	63
+	WM_KEYUP Message	63
+	WM_CHAR Message	63
+	WM_DEADCHAR Message	63
+	WM_COMMAND Message	64
+	WM_VSCROLL Message	64
+	WM_HSCROLL Message	64
+	WM_SYSKEYDOWN Message	64
+	WM_SYSKEYUP Message	65
+	WM_SYSCHAR Message	65
+	WM_SYSCOMMAND Message	65
+	EM_SETHANDLE Message	65
+	EM_GETHANDLE Message	65
+	EM_SCROLL Message	66
+	EM_LINELENGTH Message	66
+	EM_GETMODIFY Message	66
+	EM_SETMODIFY Meesage	66
+	LB_SETSEL Message	67
+	LB_SETCURSEL Message	67
+	LB_RESETCONTENT Message	67
+Programming Guide	69
+	Using GDI in Applications	71
+	Creating Windows Applications	71
+	Controls and Dialog Boxes	72
+	Using System Resources	74
+	The Clipboard	74

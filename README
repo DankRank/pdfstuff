@@ -12,10 +12,10 @@ Windows NT Programmer's Reference:
   installed you can just place Disk01.iso in source and run make extract)
 - Run make
 
-Windows 1.03 Programmer's Reference:
+Windows 1.03 SDK Docs:
 - Get the documentation PDFs from the same place as NT
 - Copy the files into source/win103/
-- Run make win103-7.pdf
+- Run make win103
 
 C90 standard:
 - Place it here: source/ansi-iso-9899-1990-1.pdf
@@ -45,6 +45,7 @@ commands:
 --toc-dump      : output existing toc to stdout
 --toc-clear     : removes the toc (must be used before --toc is used)
 --toc [file]    : reads toc from a file
+--pagemode [mode] : set pagemode
 --box n l b w h : same as a podofobox command
 
 num files look like:

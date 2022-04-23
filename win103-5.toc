@@ -1,0 +1,144 @@
+1  Introduction	1
+	1.1  Overview	3
+	1.2  Application Development	3
+	1.3  Windows Applications	4
+	1.4  The Windows Display Screen	4
+2  Creating Simple Applications	7
+	2.1  Introduction	9
+	2.2  The HELLO Application	9
+	2.3  What HELLO Looks Like	10
+	2.4  The Program Source: HELLO.C	12
+	2.5  The Module Definition File: HELLO.DEF	25
+	2.6  The Resource File: HELLO.RC	27
+	2.7  Putting HELLO Together	28
+	2.8  The TYPE Application	30
+	2.9  What TYPE Does	30
+	2.10  TYPE’s Source Files	32
+	2.11  The Source File: TYPE.C	32
+	2.12  TYPE’s Local Functions	37
+3  Using GDI in Applications	43
+	3.1  Introduction	45
+	3.2  The SHAPES Application	45
+	3.3  How SHAPES Works	45
+	3.4  The SHAPES.C FILE	47
+	3.5  Processing Menu Input	53
+	3.6  Menus in a Resource File	59
+	3.7  The Default Menu for the Window Class	60
+	3.8  Defining an Accelerator Table	60
+	3.9  Loading and Using an Accelerator Table	61
+	3.10  The TRACK Application	62
+	3.11  How TRACK Works	62
+	3.12  The TRACK.C File	66
+	3.13  Setting the Coordinate System	73
+	3.14  Reading and Setting the Menu	74
+	3.15  Making the Drawing Box	75
+	3.16  Borrowing Data from the Previous Instance	77
+4  Using Fonts and Dialog Boxes	79
+	4.1  Introduction	81
+	4.2  What FONTTEST Does	81
+	4.3  The Source File: FONTTEST.C	84
+	4.4  Reading FONTTEST’s Menu	91
+	4.5  Displaying the Sample String	92
+	4.6  FONTTEST’s Dialog Box	93
+	4.7  The Resource Script: FONTTEST.RC	97
+	4.8  The Module Definition File: FONTTEST.DEF	99
+5  Creating Windows Applications	101
+	5.1  Introduction	103
+	5.2  Windows Applications	103
+	5.3  The Main Function	104
+	5.4  Messages and Queues	105
+	5.5  Window Messages	111
+	5.6  An Application as a Task	119
+	5.7  Terminating an Application	123
+6  Creating and Using Windows	125
+	6.1  Introduction	127
+	6.2  The Standard Window	127
+	6.3  Window Classes	128
+	6.4  Tiled Windows	130
+	6.5  Creating a Tiled Window	131
+	6.6  Child Windows	131
+	6.7  Popup Windows	134
+	6.8  Window Styles	137
+	6.9  Painting Windows	138
+	6.10  Window Subclassing	144
+7  Controls and Dialog Boxes	147
+	7.1  Introduction	149
+	7.2  Control Windows	149
+	7.3  Button Controls	150
+	7.4  Edit Controls	153
+	7.5  Static Controls	161
+	7.6  List Boxes	162
+	7.7  List Box Control Styles	163
+	7.8  Scroll Bar Controls	167
+	7.9  WS_TABSTOP and WS_GROUP Styles	168
+	7.10  Dialog Boxes	169
+	7.11  Default Responses in Message Boxes	174
+8  Using System Resources	175
+	8.1  Introduction	177
+	8.2  Memory Management	177
+	8.3  Resources	179
+	8.4  Dynamic Linking	180
+	8.5  Changing Menus	181
+	8.6  Using the System Menu	185
+	8.7  Using the Mouse Cursor When No Mouse is Available	188
+	8.8  Rules About Disk Files	190
+	8.9  Using a Printer	194
+	8.10  Miscellaneous Rules	201
+9  The Clipboard	203
+	9.1  Introduction	205
+	9.2  Copying Data to the Clipboard	205
+	9.3  Reading Data From the clipboard	206
+	9.4  Rendering Data on Request	207
+	9.5  Rendering Formats Before Terminating	207
+	9.6  Standard Data Formats	208
+	9.7  The Clipboard Viewer Application	209
+	9.8  Controlling the Display of Data in the Clipboard Viewer	209
+	9.9  Clipboard Viewer Chain	211
+	9.10  Metafile Pictures	212
+	9.11  Standards for Playing Metafile Pictures	216
+Appendixes	219
+A  Creating Windows Libraries	221
+	A.1  Windows Libraries	223
+	A.2  Initializing the Local Heap For Libraries	223
+	A.3  Calling Routines in a Library	224
+B  Creating A Font Resource	225
+	B.1  Font Resources	227
+	B.2  Creating Font Files	227
+	B.3  Adding Fonts to Executable Files	227
+	B.4  Creating Font Resource-Only Files	228
+	B.5  Compiling and Linking the Font Resource	231
+C  GDI Definitnions	233
+	C.1  Coordinate Systems	235
+	C.2  Transformation Equations	235
+	C.3  GDI Window and Viewport Functions	237
+	C.4  Mapping Modes	237
+	C.5  Completely Constrained	238
+	C.6  Partially Constrained: MM_ISOTROPIC	239
+	C.7  Unconstrained: MM_ANISOTROPIC	239
+	C.8  When to Use the Mapping Modes	239
+	C.9  GDI Transformation Defaults Values	240
+	C.10  Logical Screen Size	240
+	C.11  Default System Font	241
+	C.12  ANSI Fixed Font	242
+	C.13  Selecting Font	242
+	C.14  How the Font Mapper Works	243
+Index	247
+Figures	vii
+	Figure 2.1  HELLO’s Window	10
+	Figure 2.2  About... Command in the System Menu	11
+	Figure 2.3  About Dialog Box	11
+	Figure 2.4  TYPE’s Window	30
+	Figure 2.5  Multiple Instances of TYPE	31
+	Figure 3.1  SHAPES’s Star	45
+	Figure 3.2  SHAPE’s Menu	46
+	Figure 3.3  A New Shape	47
+	Figure 3.4  TRACK’s Menu	62
+	Figure 3.5  Track’s Drawing Box	63
+	Figure 3.6  The Star	63
+	Figure 3.7  A Change of Selection	64
+	Figure 3.8  A New Shape	65
+	Figure 4.1  FONTTEST Window	81
+	Figure 4.2  Selecting the Options... Command	82
+	Figure 4.3  Dialog Box	82
+	Figure 4.4  Changing A Control	83
+	Figure 4.5  Character Height Increased	84

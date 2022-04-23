@@ -1,4 +1,4 @@
-.PHONY: all all2 clean cleanfinal extract
+.PHONY: all all2 clean cleanfinal extract win103
 .SUFFIXES:
 VOL1 := \
 	FRONT1   \
@@ -220,7 +220,8 @@ cleanfinal:
 	$(RM) pdfstuff combined.pdf $(VOLS) combined.toc combined-toc.pdf win32api.pdf \
 		$(VOLS:.pdf=-toc.pdf) $(VOLS:.pdf=.tmp.pdf) \
 		combined12.pdf combined345.pdf win32api1.pdf win32api2.pdf \
-		c90.pdf win103-7.pdf ewd123.pdf knrc1.pdf
+		c90.pdf ewd123.pdf knrc1.pdf \
+		win103-1.pdf win103-2.pdf win103-3.pdf win103-4.pdf win103-5.pdf win103-6.pdf win103-7.pdf
 extract:
 	bsdtar -xf source/Disk01.iso -C source --strip-components=2 DOC/SDK/WIN32API
 
@@ -229,10 +230,29 @@ c90.pdf: source/ansi-iso-9899-1990-1.pdf c90.num c90.toc pdfstuff
 		--title "ANSI/ISO 9899-1990" \
 		--write $@
 
-win103-7.pdf: source/win103/7\ -\ Progammers\ Reference.pdf win103-7.num win103-7.toc pdfstuff
+win103-1.pdf: source/win103/1\ -\ Welcome.pdf win103-1.num win103.title pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num win103-1.num --toc-clear --pagemode none \
+		--title "$$(sed -n 1p win103.title)" --write $@
+win103-2.pdf: source/win103/2\ -\ Microsoft\ Windows\ 1.03\ Update.pdf win103-2.num win103-2.toc win103.title pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num win103-2.num --toc-clear --toc win103-2.toc \
+		--title "$$(sed -n 2p win103.title)" --write $@
+win103-3.pdf: source/win103/3\ -\ Programmers\ Utility\ Guide.pdf win103-3.num win103-3.toc win103.title pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num win103-3.num --toc-clear --toc win103-3.toc \
+		--title "$$(sed -n 3p win103.title)" --write $@
+win103-4.pdf: source/win103/4\ -\ Quick\ Reference.pdf win103-4.num win103-4.toc win103.title pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num win103-4.num --toc-clear --toc win103-4.toc \
+		--title "$$(sed -n 4p win103.title)" --write $@
+win103-5.pdf: source/win103/5\ -\ Windows\ Programming\ Guide.pdf win103-5.num win103-5.toc win103.title pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num win103-5.num --toc-clear --toc win103-5.toc \
+		--title "$$(sed -n 5p win103.title)" --write $@
+win103-6.pdf: source/win103/6\ -\ Application\ Style\ Guide.pdf win103-6.num win103-6.toc win103.title pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num win103-6.num --toc-clear --toc win103-6.toc \
+		--title "$$(sed -n 6p win103.title)" --write $@
+win103-7.pdf: source/win103/7\ -\ Progammers\ Reference.pdf win103-7.num win103-7.toc win103.title pdfstuff
 	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num win103-7.num --toc-clear --toc win103-7.toc \
-		--title "Programmer's Reference" \
-		--write $@
+		--title "$$(sed -n 7p win103.title)" --write $@
+win103: win103-1.pdf win103-2.pdf win103-3.pdf win103-4.pdf win103-5.pdf win103-6.pdf win103-7.pdf
+
 ewd123.pdf: source/EWD123.PDF ewd123.num ewd123.toc pdfstuff
 	@$(info ADDTOC   $@)./pdfstuff --read $< --num ewd123.num --toc ewd123.toc \
 		--title "Cooperating sequential processes (EWD123)"\
@@ -243,4 +263,4 @@ knrc1.pdf: source/The\ C\ Programming\ Language\ First\ Edition\ [UA-07].pdf knr
 		--title "The C Programming Language (First Edition)" \
 		--write $@
 
-all2: all c90.pdf win103-7.pdf ewd123.pdf knrc1.pdf
+all2: all c90.pdf win103 ewd123.pdf knrc1.pdf
