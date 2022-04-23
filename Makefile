@@ -220,7 +220,7 @@ cleanfinal:
 	$(RM) pdfstuff combined.pdf $(VOLS) combined.toc combined-toc.pdf win32api.pdf \
 		$(VOLS:.pdf=-toc.pdf) $(VOLS:.pdf=.tmp.pdf) \
 		combined12.pdf combined345.pdf win32api1.pdf win32api2.pdf \
-		c90.pdf ewd123.pdf knrc1.pdf \
+		c90.pdf dos2.pdf ewd123.pdf knrc1.pdf \
 		win103-1.pdf win103-2.pdf win103-3.pdf win103-4.pdf win103-5.pdf win103-6.pdf win103-7.pdf
 extract:
 	bsdtar -xf source/Disk01.iso -C source --strip-components=2 DOC/SDK/WIN32API
@@ -253,6 +253,11 @@ win103-7.pdf: source/win103/7\ -\ Progammers\ Reference.pdf win103-7.num win103-
 		--title "$$(sed -n 7p win103.title)" --write $@
 win103: win103-1.pdf win103-2.pdf win103-3.pdf win103-4.pdf win103-5.pdf win103-6.pdf win103-7.pdf
 
+dos2.pdf: source/Microsoft_Programmers_Reference_Manual_MSDOS_2.0.pdf dos2.num dos2.toc pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read $< --num dos2.num --toc dos2.toc \
+		--title "MS-DOS Programmer's Reference Manual" \
+		--write $@
+
 ewd123.pdf: source/EWD123.PDF ewd123.num ewd123.toc pdfstuff
 	@$(info ADDTOC   $@)./pdfstuff --read $< --num ewd123.num --toc ewd123.toc \
 		--title "Cooperating sequential processes (EWD123)"\
@@ -263,4 +268,4 @@ knrc1.pdf: source/The\ C\ Programming\ Language\ First\ Edition\ [UA-07].pdf knr
 		--title "The C Programming Language (First Edition)" \
 		--write $@
 
-all2: all c90.pdf win103 ewd123.pdf knrc1.pdf
+all2: all c90.pdf win103 dos2.pdf ewd123.pdf knrc1.pdf
