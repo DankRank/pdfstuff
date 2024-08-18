@@ -42,7 +42,7 @@ Chapter 1 System Calls	1-1
 		0CH Flush Buffer, Read Keyboard	1-48
 		0DH Disk Reset	1-49
 		0EH Select Disk	1-50
-		0FH Open File	1-50
+		0FH Open File	1-51
 		10H Close File	1-53
 		11H Search for First Entry	1-55
 		12H Search for Next Entry	1-57
@@ -77,7 +77,7 @@ Chapter 1 System Calls	1-1
 		3AH Remove a Directory Entry	1-110
 		3BH Change Current Directory	1-111
 		3CH Create a File	1-112
-		3DH Open a File	1-112
+		3DH Open a File	1-113
 		3EH Close a File Handle	1-115
 		3FH Read From File/Device	1-116
 		40H Write to a File/Device	1-117
