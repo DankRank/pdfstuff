@@ -154,8 +154,13 @@ cleanfinal:
 extract:
 	bsdtar -xf source/Disk01.iso -C source --strip-components=2 DOC/SDK/WIN32API
 
+# Debian linked a version of podofo that doesn't support OpenSSL 3.0 against
+# OpenSSL 3.0, and now we're stuck with it for two years, as usual.
+# Also this config format is ridiculous.
+STUPID_DEBIAN_12_FIX=OPENSSL_CONF=openssl.cnf
+
 c90.pdf: source/ansi-iso-9899-1990-1.pdf c90.num c90.toc pdfstuff
-	@$(info ADDTOC   $@)./pdfstuff --read $< --num c90.num --toc c90.toc \
+	@$(info ADDTOC   $@)$(STUPID_DEBIAN_12_FIX) ./pdfstuff --read $< --num c90.num --toc c90.toc \
 		--title "ANSI/ISO 9899-1990" \
 		--write $@
 
