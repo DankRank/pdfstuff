@@ -1,0 +1,286 @@
+Introduction	xvii
+	New Features of the CodeView Debugger	xvii
+	About This Manual	xviii
+	Notational Conventions	xx
+Part 1 The CodeView Debugger	1
+	1 Getting Started	5
+		1.1 Restrictions	7
+		1.2 Preparing Programs for the CodeView Debugger	8
+			1.2.1 Programming Considerations	8
+			1.2.2 CodeView Compile Options	9
+			1.2.3 CodeView Link Options	10
+			1.2.4 Preparing C Programs	11
+			1.2.5 Preparing FORTRAN Programs	13
+			1.2.6 Preparing BASIC Programs	14
+			1.2.7 Preparing Pascal Programs	15
+			1.2.8 Preparing Assembly Programs	17
+		1.3 Starting the CodeView Debugger	20
+		1.4 Using CodeView Options	23
+			1.4.1 Using Two Video Adapters	25
+			1.4.2 Using the Enhanced Graphics Adapter's 43-Line Mode	26
+			1.4.3 Starting with a Black-and-White Display	26
+			1.4.4 Specifying Start-Up Commands	27
+			1.4.5 Handling Interrupt Trapping	28
+			1.4.6 Using Expanded Memory	29
+			1.4.7 Setting the Screen-Exchange Mode	29
+			1.4.8 Turning Off the Mouse	31
+			1.4.9 Extending EGA Compatibility	32
+			1.4.10 Enabling Window or Sequential Mode	33
+		1.5 Debugging Large Programs	34
+		1.6 Working with Older Versions of the Assembler	34
+	2 The CodeView Display	37
+		2.1 Using Window Mode	39
+			2.1.1 Executing Window Commands with the Keyboard	41
+				2.1.1.1 Moving the Cursor with Keyboard Commands	41
+				2.1.1.2 Changing the Screen with Keyboard Commands	43
+				2.1.1.3 Controlling Program Execution with Keyboard Commands	44
+				2.1.1.4 Selecting from Menus with the Keyboard	45
+			2.1.2 Executing Window Commands with the Mouse	47
+				2.1.2.1 Changing the Screen with the Mouse	47
+				2.1.2.2 Controlling Program Execution with the Mouse	48
+				2.1.2.3 Selecting from Menus with the Mouse	50
+			2.1.3 Using Menu Selections	52
+				2.1.3.1 The File Menu	52
+				2.1.3.2 The View Menu	54
+				2.1.3.3 The Search Menu	55
+				2.1.3.4 The Run Menu	57
+				2.1.3.5 The Watch Menu	58
+				2.1.3.6 The Options Menu	60
+				2.1.3.7 The Language Menu	62
+				2.1.3.8 The Calls Menu	63
+				2.1.3.9 The Help Menu	65
+			2.1.4 Using the Help System	65
+		2.2 Using Sequential Mode	66
+	3 Using Dialog Commands	69
+		3.1 Entering Commands and Arguments	71
+			3.1.1 Using Special Keys	71
+			3.1.2 Using the Command Buffer	72
+		3.2 Format for CodeView Commands and Arguments	73
+	4 CodeView Expressions	75
+		4.1 C Expressions	78
+			4.1.1 C Symbols	79
+			4.1.2 C Constants	80
+			4.1.3 C Strings	81
+		4.2 FORTRAN Expressions	81
+			4.2.1 FORTRAN Symbols	83
+			4.2.2 FORTRAN Constants	83
+			4.2.3 FORTRAN Strings	84
+			4.2.4 FORTRAN Intrinsic Functions	85
+		4.3 BASIC Expressions	86
+			4.3.1 BASIC Symbols	88
+			4.3.2 BASIC Constants	88
+			4.3.3 BASIC Strings	89
+			4.3.4 BASIC Intrinsic Functions	89
+		4.4 Pascal Expressions	91
+			4.4.1 Pascal Symbols	92
+			4.4.2 Pascal Constants	93
+			4.4.3 Pascal Strings	93
+			4.4.4 Pascal Intrinsic Functions	93
+		4.5 Assembly Expressions	95
+		4.6 Line Numbers	97
+		4.7 Registers and Addresses	97
+			4.7.1 Registers	98
+			4.7.2 Addresses	99
+			4.7.3 Address Ranges	100
+		4.8 Memory Operators	101
+			4.8.1 Accessing Bytes (BY)	101
+			4.8.2 Accessing Words (WO)	102
+			4.8.3 Accessing Double Words (DW)	103
+		4.9 Switching Expression Evaluators	104
+	5 Executing Code	107
+		5.1 Trace Command	110
+		5.2 Program Step Command	113
+		5.3 Go Command	115
+		5.4 Execute Command	118
+		5.5 Restart Command	119
+	6 Examining Data and Expressions	121
+		6.1 Display Expression Command	123
+		6.2 Examine Symbols Command	132
+		6.3 Dump Commands	138
+			6.3.1 Dump	139
+			6.3.2 Dump Bytes	140
+			6.3.3 Dump ASCII	141
+			6.3.4 Dump Integers	141
+			6.3.5 Dump Unsigned Integers	142
+			6.3.6 Dump Words	143
+			6.3.7 Dump Double Words	144
+			6.3.8 Dump Short Reals	144
+			6.3.9 Dump Long Reals	145
+			6.3.10 Dump 10-Byte Reals	146
+		6.4 Compare Memory Command	147
+		6.5 Search Memory Command	148
+		6.6 Port Input Command	149
+		6.7 Register Command	150
+		6.8 8087 Command	152
+	7 Managing Breakpoints	155
+		7.1 Breakpoint Set Command	157
+		7.2 Breakpoint Clear Command	160
+		7.3 Breakpoint Disable Command	161
+		7.4 Breakpoint Enable Command	162
+		7.5 Breakpoint List Command	164
+	8 Managing Watch Statements	167
+		8.1 Setting Watch-Expression and Watch-Memory Statements	170
+		8.2 Setting Watchpoints	174
+		8.3 Setting Tracepoints	177
+		8.4 Deleting Watch Statements	181
+		8.5 Listing Watchpoints and Tracepoints	183
+		8.6 C Examples	184
+		8.7 FORTRAN Examples	185
+		8.8 Pascal Examples	186
+		8.9 Assembly Examples	187
+	9 Examining Code	189
+		9.1 Set Mode Command	191
+		9.2 Unassemble Command	193
+		9.3 View Command	195
+		9.4 Current Location Command	198
+		9.5 Stack Trace Command	199
+	10 Modifying Code or Data	203
+		10.1 Assemble Command	205
+		10.2 Enter Commands	209
+			10.2.1 Enter Command	212
+			10.2.2 Enter Bytes Command	212
+			10.2.3 Enter ASCII Command	213
+			10.2.4 Enter Integers Command	214
+			10.2.5 Enter Unsigned Integers Command	214
+			10.2.6 Enter Words Command	215
+			10.2.7 Enter Double Words Command	216
+			10.2.8 Enter Short Reals Command	217
+			10.2.9 Enter Long Reals Command	217
+			10.2.10 Enter 10-Byte Reals Command	218
+		10.3 Fill Memory Command	219
+		10.4 Move Memory Command	220
+		10.5 Port Output Command	221
+		10.6 Register Command	222
+	11 Using CodeView System-Control Commands	227
+		11.1 Help Command	229
+		11.2 Quit Command	230
+		11.3 Radix Command	231
+		11.4 Redraw Command	233
+		11.5 Screen Exchange Command	233
+		11.6 Search Command	234
+		11.7 Shell Escape Command	237
+		11.8 Tab Set Command	239
+		11.9 Option Command	240
+		11.10 Redirection Commands	242
+			11.10.1 Redirecting CodeView Input	243
+			11.10.2 Redirecting CodeView Output	244
+			11.10.3 Redirecting CodeView Input and Output	245
+			11.10.4 Commands Used with Redirection	245
+				11.10.4.1 Comment Command	246
+				11.10.4.2 Delay Command	247
+				11.10.4.3 Pause Command	248
+Part 2 Utilities	249
+	12 Linking Object FILES with LINK	253
+		12.1 Specifying Files for Linking	255
+			12.1.1 Specifying File Names	255
+			12.1.2 Linking with the LINK Command Line	256
+			12.1.3 Linking with the LINK Prompts	258
+			12.1.4 Linking withe a Response File	260
+			12.1.5 How Link Searches for Libraries	261
+			12.1.6 LINK Memory Requirements	263
+		12.2 Specifying Linker Options	264
+			12.2.1 Viewing the Options List (/HE)	265
+			12.2.2 Pausing during Linking (/PAU)	266
+			12.2.3 Displaying Linker Process Information (/I)	266
+			12.2.4 Packing Executable Files (/E)	267
+			12.2.5 Listing Public Symbols (/M)	268
+			12.2.6 Including Line Numbers in the Map File (/LI)	269
+			12.2.7 Preserving Case Sensitivity (/NOI)	269
+			12.2.8 Ignoring Default Libraries (/NOD)	269
+			12.2.9 Controlling Stack Size (/ST)	270
+			12.2.10 Setting the Maximum Allocation Space (/CP)	270
+			12.2.11 Setting Maximum Number of Segments (/SE)	271
+			12.2.12 Setting the Overlay Interrupt (/O)	272
+			12.2.13 Ordering Segments (/DO)	272
+			12.2.14 Controlling Data Loading (/DS)	273
+			12.2.15 Controlling Executable-File Loading (/HI)	274
+			12.2.16 Preserving Compatibility (/NOG)	274
+			12.2.17 Preparing for Debugging (/CO)	275
+			12.2.18 Running in Batch Mode (/B)	275
+			12.2.19 Optimizing Far Calls (/F)	276
+			12.2.20 Disabling Far-Call Optimization (/NOF)	277
+			12.2.21 Packing Contiguous Segments (/PAC)	277
+			12.2.22 Disabling Segment Packing (/NOP)	278
+			12.2.23 Specifying User Libraries for Quick Languages (/Q)	279
+		12.3 Selecting Options with the LINK Environment Variable	280
+		12.4 Linker Operation	281
+			12.4.1 Alignment of Segments	281
+			12.4.2 Frame Number	282
+			12.4.3 Order of Segments	282
+			12.4.4 Combined Segments	282
+			12.4.5 Groups	283
+			12.4.6 Fix Ups	283
+		12.5 Using Overlays	285
+			12.5.1 Restrictions on Overlays	285
+			12.5.2 Overlay-Manager Prompts	286
+	13 Managing Libraries with LIB	287
+		13.1 Managing Libraries	289
+			13.1.1 Managing Libraries with the LIB Command Line	290
+				13.1.1.1 Specifying the Library File	290
+				13.1.1.2 Specifying a Page Size	291
+				13.1.1.3 Giving LIB Commands	291
+				13.1.1.4 Specifying a Cross-Reference-Listing File	293
+				13.1.1.5 Specifying an Output Library	293
+			13.1.2 Managing Libraries with the LIB Prompts	295
+				13.1.2.1 Extending Lines	295
+				13.1.2.2 Using Default Responses	296
+			13.1.3 Managing Libraries with a Response File	296
+			13.1.4 Terminating the LIB Session	297
+		13.2 Performing Library Management Tasks with LIB	297
+			13.2.1 Creating a Library File	298
+			13.2.2 Changing a Library File	299
+			13.2.3 Adding Library Modules	299
+			13.2.4 Deleting Library Modules	300
+			13.2.5 Replacing Library Modules	300
+			13.2.6 Copying Library Modules	300
+			13.2.7 Moving Library Modules (Extracting)	300
+			13.2.8 Combining Libraries	300
+			13.2.9 Creating a Cross-Reference-Listing File	301
+			13.2.10 Performing Consistency Checks	301
+			13.2.11 Setting the Library Page Size	302
+	14 Automating Program Development with MAKE	303
+		14.1 Using MAKE	305
+		14.2 Creating a MAKE Description File	306
+		14.3 Automating Program Development	309
+		14.4 Running MAKE	311
+		14.5 Specifying MAKE Options	312
+		14.6 Using Macro Definitions with MAKE	312
+			14.6.1 Defining and Specifying Macros	313
+			14.6.2 Using Macros within Macro Definitions	315
+			14.6.3 Using Special Macros	315
+		14.7 Defining Inference Rules	316
+	15 Using EXEPACK, EXEMOD, SETENV, and ERROUT	319
+		15.1 Compressing Executable Files with the EXEPACK Utility	321
+		15.2 Modifying Program Headers with the EXEMOD Utility	322
+		15.3 Enlarging the DOS Environment with the SETENV Utility	326
+		15.4 Redirecting Error Output with the ERROUT Utility	328
+Appendixes	331
+	A Regular Expressions	333
+		A.1 Introduction	335
+		A.2 Special Characters in Regular Expressions	335
+		A.3 Searching for Special Characters	336
+		A.4 Using the Period	336
+		A.5 Using Brackets	336
+			A.5.1 Using the Dash within Brackets	337
+			A.5.2 Using the Caret within Brackets	337
+			A.5.3 Matching Brackets within Brackets	338
+		A.6 Using the Asterisk	338
+		A.7 Matching the Start or End of a Line	339
+	B Using Exit Codes	341
+		B.1 Exit Codes with MAKE	343
+		B.2 Exit Codes with DOS Batch Files	343
+		B.3 Exit Codes for Programs	344
+			B.3.1 CodeView Exit Codes	344
+			B.3.2 LINK Exit Codes	344
+			B.3.3 Exit codes for LIB, EXEPACK, EXEMOD, MAKE, and SETENV	345
+			B.3.4 ERROUT Exit Codes	345
+	C Error Messages	347
+		C.1 CodeView Error Messages	349
+		C.2 Linker Error Messages	359
+		C.3 LIB Error Messages	370
+		C.4 MAKE Error Messages	375
+		C.5 EXEPACK Error Messages	378
+		C.6 EXEMOD Error Messages	380
+		C.7 SETENV Error Messages	381
+		C.8 ERROUT Error Messages	382
+Index	385

@@ -1,0 +1,363 @@
+Introduction	xix
+	New Features	xix
+	System Requirements	xx
+	About This Manual and Other Assembler Documentation	xx
+	IBM Compilers and Assemblers	xxiii
+	Books on Assembly Language	xxiii
+	Notational Conventions	xxiv
+	Getting Assistance or Reporting Problems	xxviii
+Part 1 Using Assembler Programs	1
+	1 Getting Started	5
+		1.1 Setting Up Your System	7
+			1.1.1 Making Backup Copies	7
+			1.1.2 Choosing a Configuration Strategy	7
+			1.1.3 Copying Files	9
+			1.1.4 Setting Environment Variables	10
+		1.2 Choosing a Program Type	10
+		1.3 The Program-Development Cycle	11
+		1.4 Developing Programs	14
+			1.4.1 Writing and Editing Assembly-Language Source Code	14
+			1.4.2 Assembling Source Files	17
+			1.4.3 Converting Cross-Reference Files	17
+			1.4.4 Creating Library Files	18
+			1.4.5 Linking Object Files	18
+			1.4.6 Converting to .COM Format	19
+			1.4.7 Debugging	20
+	2 Using MASM	21
+		2.1 Running the Assembler	23
+			2.1.1 Assembly Using a Command Line	23
+			2.1.2 Assembly Using Prompts	25
+		2.2 Using Environment Variables	26
+			2.2.1 The INCLUDE Environment Variable	26
+			2.2.2 The MASM Environment Variable	27
+		2.3 Controlling Message Output	28
+		2.4 Using MASM Options	29
+			2.4.1 Specifying the Segment-Order Method	30
+			2.4.2 Setting the File-Buffer Size	31
+			2.4.3 Creating a Pass 1 Listing	32
+			2.4.4 Defining Assembler Symbols	32
+			2.4.5 Creating Code For a Floating-Point Emulator	33
+			2.4.6 Getting Command-Line Help	34
+			2.4.7 Setting a Search Path for Include Files	35
+			2.4.8 Specifying Listing and Cross-Reference Files	35
+			2.4.9 Specifying Case Sensitivity	36
+			2.4.10 Suppressing Tables in the Listing File	37
+			2.4.11 Checking for Impure Code	37
+			2.4.12 Controlling Display of Assembly Statistics	38
+			2.4.13 Setting the Warning Level	39
+			2.4.14 Listing False Conditionals	40
+			2.4.15 Displaying Error Lines on the Screen	41
+			2.4.16 Writing Symbolic Information to the Object File	41
+		2.5 Reading Assembly Listings	42
+			2.5.1 Reading Code in a Listing	42
+			2.5.2 Reading a Macro Table	45
+			2.5.3 Reading a Structure and Record Table	45
+			2.5.4 Reading a Segment and Group Table	46
+			2.5.5 Reading a Symbol Table	47
+			2.5.6 Reading Assembly Statistics	49
+			2.5.7 Reading a Pass 1 Listing	49
+	3 Using CREF	51
+		3.1 Using CREF	53
+			3.1.1 Using a Command Line to Create a Cross-Reference Listing	53
+			3.1.2 Using Prompts to Create a Cross-Reference Listing	54
+		3.2 Reading Cross-Reference Listings	55
+Part 2 Using Directives	59
+	4 Writing Source Code	63
+		4.1 Writing Assembly-Language Statements	65
+			4.1.1 Using Mnemonics and Operands	66
+			4.1.2 Writing Comments	67
+		4.2 Assigning Names to Symbols	67
+		4.3 Constants	69
+			4.3.1 Integer Constants	70
+				4.3.1.1 Specifying Integers with Radix Specifiers	70
+				4.3.1.2 Setting the Default Radix	71
+			4.3.2 Packed Binary Coded Decimal Constants	72
+			4.3.3 Real-Number Constants	73
+			4.3.4 String Constants	74
+		4.4 Defining Default Assembly Behavior	75
+		4.5 Ending a Source File	78
+	5 Defining Segment Structure	81
+		5.1 Simplified Segment Definitions	83
+			5.1.1 Understanding Memory Models	84
+			5.1.2 Specifying DOS Segment Order	85
+			5.1.3 Defining the Memory Model	87
+			5.1.4 Defining Simplified Segments	88
+			5.1.5 Using Predefined Equates	90
+			5.1.6 Simplified Segment Default	92
+			5.1.7 Default Segment Names	93
+		5.2 Full Segment Definitions	95
+			5.2.1 Setting the Segment-Order Method	96
+			5.2.2 Defining Full Segments	97
+				5.2.2.1 Controlling Alignment with Align Type	98
+				5.2.2.2 Setting Segment Word Size with Use Type	98
+				5.2.2.3 Defining Segment Combinations with Combine Type	100
+				5.2.2.4 Controlling Segment Structure with Class Type	104
+		5.3 Defining Segment Groups	106
+		5.4 Associating Segments with Registers	109
+		5.5 Initializing Segment Registers	111
+			5.5.1 Initializing the CS and IP Registers	111
+			5.5.2 Initializing the DS Register	112
+			5.5.3 Initializing the SS and SP Registers	114
+			5.5.4 Initializing the ES Register	115
+		5.6 Nesting Segments	115
+	6 Defining Labels and Variables	117
+		6.1 Using Type Specifiers	119
+		6.2 Defining Code Labels	120
+			6.2.1 Near Code Labels	120
+			6.2.2 Procedure Labels	121
+			6.2.3 Code Labels Defined with the LABEL Directive	122
+		6.3 Defining and Initializing Data	123
+			6.3.1 Variables	123
+				6.3.1.1 Integer Variables	124
+				6.3.1.2 Binary Coded Decimal Variables	127
+				6.3.1.3 String Variables	127
+				6.3.1.4 Pointer Variables	128
+				6.3.1.5 Real-Number Variables	130
+			6.3.2 Arrays and Buffers	135
+			6.3.3 Labeling Variables	136
+		6.4 Setting the Location Counter	137
+		6.5 Aligning Data	138
+	7 Using Structures and Records	141
+		7.1 Structures	143
+			7.1.1 Declaring Structure Types	143
+			7.1.2 Defining Structure Variables	145
+			7.1.3 Using Structure Operands	146
+		7.2 Records	147
+			7.2.1 Declaring Record Types	148
+			7.2.2 Defining Record Variables	150
+			7.2.3 Using Record Operands and Record Variables	151
+			7.2.4 Record Operators	153
+				7.2.4.1 The MASK Operator	153
+				7.2.4.2 The WIDTH Operator	153
+			7.2.5 Using Record-Field Operands	154
+	8 Creating Programs from Multiple Modules	157
+		8.1 Declaring Symbols Public	160
+		8.2 Declaring Symbols External	161
+		8.3 Using Multiple Modules	164
+		8.4 Declaring Symbols Communal	165
+		8.5 Specifying Library Files	169
+	9 Using Operands and Expressions	171
+		9.1 Using Operands with Directives	173
+		9.2 Using Operators	174
+			9.2.1 Calculation Operators	174
+				9.2.1.1 Arithmetic Operators	175
+				9.2.1.2 Structure-Field-Name Operator	176
+				9.2.1.3 Index Operator	177
+				9.2.1.4 Shift Operators	178
+				9.2.1.5 Bitwise Logical Operators	179
+			9.2.2 Relational Operators	180
+			9.2.3 Segment-Override Operator	181
+			9.2.4 Type Operators	182
+				9.2.4.1 PTR Operator	182
+				9.2.4.2 SHORT Operator	183
+				9.2.4.3 THIS Operator	183
+				9.2.4.4 HIGH and LOW Operators	184
+				9.2.4.5 SEG Operator	184
+				9.2.4.6 OFFSET Operator	185
+				9.2.4.7 .TYPE Operator	186
+				9.2.4.8 TYPE Operator	187
+				9.2.4.9 LENGTH Operator	188
+				9.2.4.10 SIZE Operator	188
+			9.2.5 Operator Precedence	189
+		9.3 Using the Location Counter	190
+		9.4 Using Forward References	191
+			9.4.1 Forward References to Labels	192
+			9.4.2 Forward References to Variables	194
+		9.5 Strong Typing for Memory Operands	194
+	10 Assembling Conditionally	197
+		10.1 Using Conditional-Assembly Directives	199
+			10.1.1 Testing Expressions with IF and IFE Directives	200
+			10.1.2 Testing the Pass with IF1 and IF2 Directives	201
+			10.1.3 Testing Symbol Definition with IFDEF and IFNDEF Directives	201
+			10.1.4 Verifying Macro Parameters with IFB and IFNB Directives	202
+			10.1.5 Comparing Macro Arguments with IFIDN and IFDIF Directives	203
+		10.2 Using Conditional-Error Directives	204
+			10.2.1 Generating Unconditional Errors with .ERR, .ERR1, and .ERR2	205
+			10.2.2 Testing Expressions with .ERRE or .ERRNZ Directives	206
+			10.2.3 Verifying Symbol Definition with .ERRDEF and .ERRNDEF Directives	207
+			10.2.4 Testing for Macro Parameters with .ERRB and .ERRNB Directives	207
+			10.2.5 Comparing Macro Arguments with .ERRIDN and .ERRDIF Directives	208
+	11 Using Equates, Macros, and Repeat Blocks	211
+		11.1 Using Equates	213
+			11.1.1 Redefinable Numeric Equates	213
+			11.1.2 Nonredefinable Numeric Equates	214
+			11.1.3 String Equates	216
+		11.2 Using Macros	217
+			11.2.1 Defining Macros	218
+			11.2.2 Calling Macros	219
+			11.2.3 Using Local Symbols	220
+			11.2.4 Exiting from a Macro	222
+		11.3 Defining Repeat Blocks	223
+			11.3.1 The REPT Directive	223
+			11.3.2 The IRP Directive	224
+			11.3.3 The IRPC Directive	225
+		11.4 Using Macro Operators	226
+			11.4.1 Substitute Operator	226
+			11.4.2 Literal-Text Operator	228
+			11.4.3 Literal-Character Operator	229
+			11.4.4 Expression Operator	230
+			11.4.5 Macro Comments	231
+		11.5 Using Recursive, Nested, and Redefined Macros	231
+			11.5.1 Using Recursion	231
+			11.5.2 Nesting Macro Definitions	232
+			11.5.3 Nesting Macro Calls	233
+			11.5.4 Redefining Macros	234
+			11.5.5 Avoiding Inadvertent Substitutions	234
+		11.6 Managing Macros and Equates	235
+			11.6.1 Using Include Files	235
+			11.6.2 Purging Macros from Memory	237
+	12 Controlling Assembly Output	239
+		12.1 Sending Messages to the Standard Output Device	241
+		12.2 Controlling Page Format in Listings	242
+			12.2.1 Setting the Listing Title	242
+			12.2.2 Setting the Listing Subtitle	243
+			12.2.3 Controlling Page Breaks	243
+		12.3 Controlling the Contents of Listing	245
+			12.3.1 Suppressing and Restoring Listing Output	245
+			12.3.2 Controlling Listing of Conditional Blocks	246
+			12.3.3 Controlling Listing of Macros	247
+		12.4 Controlling Cross-Reference Output	249
+Part 3 Using Instructions	251
+	13 Understanding 8086-Family Processors	255
+		13.1 Using the 8086-Family Processors	257
+			13.1.1 Processor Differences	257
+			13.1.2 Real and Protected Modes	259
+		13.2 Segmented Addresses	260
+		13.3 Using 8086-Family Registers	261
+			13.3.1 Segment Registers	263
+			13.3.2 General-Purpose Registers	264
+			13.3.3 Other Registers	266
+			13.3.4 The Flags Register	266
+			13.3.5 8087-Family Registers	268
+		13.4 Using the 80386 Processor Under DOS	269
+	14 Using Addressing Modes	271
+		14.1 Using Immediate Operands	273
+		14.2 Using Register Operands	274
+		14.3 Using Memory Operands	276
+			14.3.1 Direct Memory Operands	276
+			14.3.2 Indirect Memory Operands	278
+			14.3.3 80386 Indirect Memory Operands	282
+	15 Loading, Storing, and Moving Data	287
+		15.1 Transferring Data	289
+			15.1.1 Copying Data	289
+			15.1.2 Exchanging Data	290
+			15.1.3 Looking Up Data	290
+			15.1.4 Transferring Flags	291
+		15.2 Converting between Data Sizes	292
+			15.2.1 Extending Signed Values	292
+			15.2.2 Extending Unsigned Values	294
+			15.2.3 Moving and Extending Values	294
+		15.3 Loading Pointers	295
+			15.3.1 Loading Near Pointers	295
+			15.3.2 Loading Far Pointers	296
+		15.4 Transferring Data to and from the Stack	298
+			15.4.1 Pushing and Popping	298
+			15.4.2 Using the Stack	301
+			15.4.3 Saving Flags on the Stack	301
+			15.4.4 Saving All Registers on the Stack	302
+		15.5 Transferring Data to and from Ports	303
+	16 Doing Arithmetic and Bit Manipulations	305
+		16.1 Adding	307
+			16.1.1 Adding Values Directly	307
+			16.1.2 Adding Values in Multiple Registers	309
+		16.2 Subtracting	309
+			16.2.1 Subtracting Values Directly	310
+			16.2.2 Subtracting with Values in Multiple Registers	311
+		16.3 Multiplying	312
+		16.4 Dividing	314
+		16.5 Calculating with Binary Coded Decimals	316
+			16.5.1 Unpacked BCD Numbers	317
+			16.5.2 Packed BCD Numbers	319
+		16.6 Doing Logical Bit Manipulations	320
+			16.6.1 AND Operations	321
+			16.6.2 OR Operations	322
+			16.6.3 XOR Operations	322
+			16.6.4 NOT Operations	323
+		16.7 Scanning for Set Bits	324
+		16.8 Shifting and Rotating Bits	325
+			16.8.1 Multiplying and Dividing by Constants	327
+			16.8.2 Moving Bits to the Least-Significant Position	329
+			16.8.3 Adjusting Masks	329
+			16.8.4 Shifting Multiword Values	329
+			16.8.5 Shifting Multiple Bits	330
+	17 Controlling Program Flowing	331
+		17.1 Jumping	333
+			17.1.1 Jumping Unconditionally	333
+			17.1.2 Jumping Conditionally	335
+				17.1.2.1 Comparing and Jumping	335
+				17.1.2.2 Jumping Based on Flag Status	338
+				17.1.2.3 Testing Bits and Jumping	340
+				17.1.2.4 Testing and Settings Bits	341
+		17.2 Looping	343
+		17.3 Setting Bytes Conditionally	345
+		17.4 Using Procedures	346
+			17.4.1 Calling Procedures	347
+			17.4.2 Defining Procedures	347
+			17.4.3 Passing Arguments on the Stack	349
+			17.4.4 Using Local Variables	351
+			17.4.5 Setting Up Stack Frames	354
+		17.5 Using Interrupts	355
+			17.5.1 Calling Interrupts	356
+			17.5.2  Defining and Redefining Interrupt Routines	358
+		17.6 Checking Memory Ranges	361
+	18 Processing Strings	363
+		18.1 Setting Up String Operations	365
+		18.2 Moving Strings	368
+		18.3 Searching Strings	370
+		18.4 Comparing Strings	371
+		18.5 Filling Strings	373
+		18.6 Loading Values from Strings	374
+		18.7 Transferring Strings to and from Ports	375
+	19 Calculating with a Math Coprocessors	377
+		19.1 Coprocessor Architecture	379
+			19.1.1 Coprocessor Data Registers	380
+			19.1.2 Coprocessor Control Registers	381
+		19.2 Emulation	382
+		19.3 Using Coprocessor Instructions	382
+			19.3.1 Using Implied Operands in the Classical-Stack Form	383
+			19.3.2 Using Memory Operands	384
+			19.3.3 Specifying Operands in the Register Form	385
+			19.3.4 Specifying Operands in the Register-Pop Form	386
+		19.4 Coordinating Memory Access	387
+		19.5 Transferring Data	388
+			19.5.1 Transferring Data to and from Registers	388
+			19.5.2 Loading Constants	391
+			19.5.3 Transferring Control Data	392
+		19.6 Doing Arithmetic Calculations	393
+		19.7 Controlling Program Flow	399
+			19.7.1 Comparing Operands to Control Program Flow	401
+			19.7.2 Testing Control Flags after Other Instructions	404
+		19.8 Using Transcendental Instructions	404
+		19.9 Controlling the Coprocessor	406
+	20 Controlling the Processor	409
+		20.1 Controlling Timing and Alignment	411
+		20.2 Controlling the Processor	411
+		20.3 Controlling Protected-Mode Processes	412
+		20.4 Controlling the 80386	413
+Appendixes	415
+	A New Features	417
+		A.1 MASM Enhancements	419
+			A.1.1 80386 Support	419
+			A.1.2 Segment Simplification	420
+			A.1.3 Performance Improvements	420
+			A.1.4 Enhanced Error Handling	421
+			A.1.5 New Options	421
+			A.1.6 Environment Variables	422
+			A.1.7 String Equates	422
+			A.1.8 RETF and RETN Instructions	422
+			A.1.9 Communal Variables	422
+			A.1.10 Including Library Files	422
+			A.1.11 Flexible Structure Definitions	423
+		A.2 Link Enhancements	423
+		A.3 The CodeView Debugger	423
+		A.4 SETENV	424
+		A.5 Compatibility with Assemblers and Compilers	424
+	B Error Messages and Exit Codes	427
+		B.1 MASM Messages and Exit Codes	429
+			B.1.1 Assembler Status Messages	429
+			B.1.2 Numbered Assembler Messages	430
+			B.1.3 Unnumbered Error Messages	446
+			B.1.4 MASM Exit Codes	448
+		B.2 CREF Error Messages and Exit Codes	449
+Index	451
+

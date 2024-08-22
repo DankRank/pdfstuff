@@ -1,4 +1,4 @@
-.PHONY: all all2 clean cleanfinal extract win103
+.PHONY: all all2 clean cleanfinal extract win103 masm5
 .SUFFIXES:
 VOL1 := \
 	FRONT1   \
@@ -192,6 +192,24 @@ dos2.pdf: source/Microsoft_Programmers_Reference_Manual_MSDOS_2.0.pdf dos2.num d
 		--title "MS-DOS Programmer's Reference Manual" \
 		--write $@
 
+masm5: masm5_guide.pdf masm5_tools.pdf masm5_mixed.pdf masm5_ref.pdf
+masm5_guide.pdf: source/410610014-500-R00-0787_MASM_5.1_Programmers_Guide_198707.pdf masm5_guide.num masm5_guide.toc pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read $< --num masm5_guide.num --toc-clear --toc masm5_guide.toc \
+		--title "MASM 5.1 Programmer's Guide" \
+		--write $@
+masm5_tools.pdf: source/410840010-500-R03_1287_MASM_5.1_CodeView_and_Utilities_198712.pdf masm5_tools.num masm5_tools.toc pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read $< --num masm5_tools.num --toc-clear --toc masm5_tools.toc \
+		--title "MASM 5.1 CodeView and Utilities" \
+		--write $@
+masm5_mixed.pdf: source/410840031-500-R01-1287_MASM_5.1_Mixed-Language_Programmers_Guide_198712.pdf masm5_mixed.num masm5_mixed.toc pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read $< --num masm5_mixed.num --toc-clear --toc masm5_mixed.toc \
+		--title "MASM 5.1 Mixed-Language Programming Guide" \
+		--write $@
+masm5_ref.pdf: source/Microsoft_Macro_Assembler_5.0_Reference_1987.pdf masm5_ref.num masm5_ref.toc pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read $< --num masm5_ref.num --toc-clear --toc masm5_ref.toc \
+		--title "MASM 5.0 Reference" \
+		--write $@
+
 ewd123.pdf: source/EWD123.PDF ewd123.num ewd123.toc pdfstuff
 	@$(info ADDTOC   $@)./pdfstuff --read $< --num ewd123.num --toc ewd123.toc \
 		--title "Cooperating sequential processes (EWD123)"\
@@ -202,4 +220,4 @@ knrc1.pdf: source/The\ C\ Programming\ Language\ First\ Edition\ [UA-07].pdf knr
 		--title "The C Programming Language (First Edition)" \
 		--write $@
 
-all2: all c90.pdf win103 dos2.pdf ewd123.pdf knrc1.pdf
+all2: all c90.pdf win103 dos2.pdf masm5 ewd123.pdf knrc1.pdf

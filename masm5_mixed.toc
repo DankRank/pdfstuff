@@ -1,0 +1,103 @@
+Introduction	xi
+Part 1 Mixed-Language Interfaces	1
+	1 Elements of Mixed-Language Programming	5
+		1.1 Making Mixed-Language Calls	7
+		1.2 Naming Convention Requirement	9
+		1.3 Calling Convention Requirement	12
+		1.4 Parameter-Passing Requirement	13
+		1.5 Compiling and Linking	15
+			1.5.1 Compiling with Proper Memory Models	15
+			1.5.2 Linking with Language Libraries	16
+	2 BASIC Calls to High-Level Languages	17
+		2.1 The BASIC Interface to Other Languages	19
+			2.1.1 The DECLARE Statement	19
+			2.1.2 Using ALIAS	20
+			2.1.3 Using the Parameter List	21
+		2.2 Alternative BASIC Interfaces	22
+		2.3 BASIC Calls to C	23
+			2.3.1 Calling C from BASIC - No Return Value	23
+			2.3.2 Calling C from BASIC - Function Call	24
+		2.4 BASIC Calls to FORTRAN	26
+			2.4.1 Calling FORTRAN from BASIC - Subroutine Call	26
+			2.4.2 Calling FORTRAN from BASIC - Function Call	27
+		2.5 BASIC Calls to Pascal	29
+			2.5.1 Calling Pascal from BASIC - Procedure Call	29
+			2.5.2 Calling Pascal from BASIC - Function Call	30
+		2.6 Restriction on Calls from BASIC	31
+			2.6.1 Memory Allocation	31
+			2.6.2 Incompatible Functions	32
+	3 C Calls to High-Level Languages	33
+		3.1 The C Interface to Other Languages	35
+		3.2 Alternative C Interfaces	37
+		3.3 C Calls to BASIC	37
+		3.4 C Calls to FORTRAN	40
+			3.4.1 Calling FORTRAN from C - Subroutine Call	40
+			3.4.2 Calling FORTRAN from C - Function Call	41
+		3.5 C Calls to Pascal	42
+			3.5.1 Calling Pascal from C - Procedure Call	42
+			3.5.2 Calling Pascal from C - Function Call	44
+	4 FORTRAN Calls to High-Level Languages	45
+		4.1 The FORTRAN Interface to Other Languages	47
+			4.1.1 The INTERFACE Statement	47
+			4.1.2 Using ALIAS	49
+		4.2 Alternative FORTRAN Interface to C	49
+		4.3 FORTRAN Calls to BASIC	50
+		4.4 FORTRAN Calls to C	52
+			4.4.1 Calling C from FORTRAN - No Return Value	52
+			4.4.2 Calling C from FORTRAN - Function Call	54
+		4.5 FORTRAN Calls to Pascal	55
+			4.5.1 Calling Pascal from FORTRAN - Procedure Call	55
+			4.5.2 Calling Pascal from FORTRAN - Function Call	56
+	5 Pascal Calls to High-Level Languages	58
+		5.1 The Pascal Interface to Other Languages	61
+		5.2 Alternative Pascal Interface to C	62
+		5.3 Pascal Calls to BASIC	62
+		5.4 Pascal Calls to C	65
+			5.4.1 Calling C from Pascal - No Return Value	65
+			5.4.2 Calling C from Pascal - Function Call	66
+		5.5 Pascal Calls to FORTRAN	67
+			5.5.1 Calling FORTRAN from Pascal - Subroutine Call	67
+			5.5.2 Calling FORTRAN from Pascal - Function call	68
+	6 Assembly-to-High-Level Interface	71
+		6.1 Writing the Assembly Procedure	73
+			6.1.1 Setting Up The Procedure	73
+			6.1.2 Entering the Procedure	74
+			6.1.3 Allocating Local Data (Optional)	75
+			6.1.4 Preserving register Values	75
+			6.1.5 Accessing Parameters	76
+			6.1.6 Returning a Value	78
+			6.1.7 Exiting the Procedure	80
+		6.2 Calls from BASIC	81
+		6.3 Calls from C	83
+		6.4 Calls from FORTRAN	85
+		6.5 Calls from Pascal	88
+		6.6 Calling High-Level Languages from Assembly	90
+		6.7 The Microsoft Segment Model	91
+Part 2 Data Handling Reference	95
+	7 Passing by Reference or Value	99
+		7.1 BASIC arguments	101
+		7.2 C Arguments	102
+		7.3 FORTRAN Arguments	104
+		7.4 Pascal Arguments	105
+	8 Numerical, Logical, and String Data	107
+		8.1 Integer and Real Numbers	109
+		8.2 FORTRAN COMPLEX Types	109
+		8.3 FORTRAN LOGICAL Type	111
+		8.4 Strings	111
+			8.4.1 String Formats	111
+			8.4.2 Passing BASIC Strings	114
+			8.4.3 Passing C Strings	117
+			8.4.4 Passing FORTRAN Strings	118
+			8.4.5 Passing Pascal Strings	120
+	9 Special Data Types	123
+		9.1 Arrays	125
+			9.1.1 Passing Arrays from BASIC	125
+			9.1.2 Array Declaration and Indexing	127
+		9.2 Structures, Records, and User-defined Types	129
+		9.3 External Data	130
+		9.4 Pointers and Address Variables	132
+		9.5 Common Blocks	132
+			9.5.1 Passing the Address of the Common Block	133
+			9.5.2 Accessing Common Blocks Directly	134
+		9.6 Using a Varying Number of Parameters	134
+Index	137
