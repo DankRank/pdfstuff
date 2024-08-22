@@ -16,10 +16,48 @@ Directives	Directives 1
 Processor	Processor 1
 	Interpreting Processor Instructions	23
 	Instructions	35
+		A	35
+		B	41
+		C	44
+		D	52
+		E	55
+		H	56
+		I	57
+		J	64
+		L	68
+		M	76
+		N	81
+		O	83
+		P	86
+		R	90
+		S	95
+		T	109
+		V	110
+		W	111
+		X	111
 Coprocessor	Coprocessor 1
 	Interpreting Coprocessor Instructions	115
 	Architecture	116
 	Instructions	119
+		2	119
+		A	119
+		B	120
+		C	121
+		D	123
+		E	125
+		F	125
+		I	125
+		L	127
+		M	129
+		N	130
+		P	130
+		R	133
+		S	133
+		T	139
+		U	140
+		W	140
+		X	141
+		Y	142
 Tables	Tables 1
 	DOS Program Segment Prefix (PSP)	143
 	ASCII Codes	144
