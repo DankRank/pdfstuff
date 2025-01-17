@@ -414,6 +414,9 @@ int main(int argc, const char *argv[]) {
 				for (int i = 0; i < pages; i++)
 					doc->GetPage(i)->GetObject()->GetDictionary().AddKey(key, obj);
 			}}},
+			{"--rotate-page", {2, true, [&doc](const char **args) {
+				doc->GetPage(atol(args[0])-1)->SetRotation(atol(args[1]));
+			}}},
 		};
 
 		for (int i = 1; i < argc; i++) {

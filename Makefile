@@ -149,7 +149,7 @@ clean: cleanfinal
 	$(RM) expand.dir nomarks.dir pdfbase.dir
 cleanfinal:
 	$(RM) pdfstuff combined.toc simplified.toc win32api.pdf \
-		c90.pdf dos2.pdf ewd123.pdf knrc1.pdf \
+		c90.pdf dos2.pdf ewd123.pdf knrc1.pdf logo.pdf \
 		win103-1.pdf win103-2.pdf win103-3.pdf win103-4.pdf win103-5.pdf win103-6.pdf win103-7.pdf
 extract:
 	bsdtar -xf source/Disk01.iso -C source --strip-components=2 DOC/SDK/WIN32API
@@ -220,4 +220,10 @@ knrc1.pdf: source/The\ C\ Programming\ Language\ First\ Edition\ [UA-07].pdf knr
 		--title "The C Programming Language (First Edition)" \
 		--write $@
 
-all2: all c90.pdf win103 dos2.pdf masm5 ewd123.pdf knrc1.pdf
+logo.pdf: source/logowriter_reference_guide_text.pdf logo.num logo.toc pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num logo.num --toc logo.toc \
+		--title "LogoWriter Reference Guide" \
+		--rotate-page 160 270 \
+		--write $@
+
+all2: all c90.pdf win103 dos2.pdf masm5 ewd123.pdf knrc1.pdf logo.pdf

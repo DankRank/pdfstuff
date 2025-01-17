@@ -1,0 +1,331 @@
+Table of Contents	1-3
+Preface	1-7
+Overview	1-9
+	Using the LogoWriter Scrapbook	1-11
+		Contents	1-11
+		A Scrapbook Page	1-12
+			Saving a Page	1-12
+			Protecting Your Pages	1-13
+			The Page and the Workspace	1-13
+			Saving Variables	1-13
+			Saving Events	1-13
+		Special Pages	1-14
+			Shapes	1-14
+			Help	1-14
+			Startup	1-15
+		Changing Scrapbook Disks	1-15
+		Copying Pages	1-15
+			Copying A Page Onto Another Disk	1-16
+			Copying A Shapes Page Onto Another Disk	1-16
+			Copying Pages With Two Disk Drives	1-17
+	LogoWriter Keys	1-19
+		General Purpose Keys	1-19
+		Help Keys	1-20
+		Graphics Keys	1-20
+		Word Processing Keys	1-21
+		Shapes Page Keys	1-22
+		Contents Keys	1-24
+LogoWriter Primitives	2-1
+	Input Words	2-2
+	Infix Math Reporters	2-5
+		+	2-5
+		-	2-5
+		*	2-5
+		/	2-5
+		=	2-6
+		>	2-6
+		<	2-6
+	A-Z	2-7
+		all	2-7
+		and	2-7
+		arctan	2-8
+		ascii	2-9
+		ask	2-9
+		back, bk	2-11
+		bg	2-11
+		bottom	2-12
+		butfirst, bf	2-12
+		butlast, bl	2-13
+		button?	2-13
+		cb	2-15
+		cc	2-15
+		cd	2-16
+		cf	2-16
+		cg	2-17
+		char	2-17
+		charunder	2-18
+		clean	2-18
+		clearevents	2-19
+		clearname	2-19
+		clearnames	2-20
+		cleartools	2-20
+		clipboard	2-21
+		color	2-21
+		colorunder	2-22
+		contents	2-22
+		copy	2-23
+		cos	2-23
+		count	2-24
+		cp	2-24
+		ct	2-25
+		cu	2-26
+		cursorchar	2-26
+		cursorpos	2-27
+		cut	2-27
+		delete	2-29
+		disk	2-29
+		distance	2-30
+		dspace	2-30
+		each	2-31
+		empty?	2-31
+		end	2-32
+		eol	2-32
+		equal?	2-33
+		erpage	2-33
+		false	2-35
+		fastturtle	2-35
+		fill	2-35
+		first	2-36
+		flip	2-36
+		forward, fd	2-36
+		found?	2-37
+		fput	2-37
+		front?	2-37
+		getpage, gp	2-39
+		getshapes	2-39
+		gettools	2-40
+		heading	2-41
+		home	2-41
+		ht	2-42
+		identical?	2-43
+		if	2-43
+		ifelse	2-44
+		insert	2-44
+		int	2-45
+		item	2-45
+		key?	2-47
+		label	2-49
+		last	2-49
+		leavepage	2-50
+		left, lt	2-50
+		list	2-51
+		list?	2-51
+		load	2-51
+		lock	2-52
+		lput	2-52
+		make	2-53
+		member?	2-54
+		minus	2-54
+		name	2-55
+		name?	2-55
+		namepage, np	2-56
+		newpage	2-56
+		nextscreen	2-56
+		not	2-57
+		number?	2-57
+		or	2-59
+		output, op	2-59
+		paddle	2-61
+		pagelist	2-61
+		parse	2-62
+		paste	2-63
+		pd	2-63
+		pe	2-64
+		pos	2-64
+		prescreen	2-64
+		print, pr	2-65
+		printnames	2-65
+		printscreen	2-66
+		printtext	2-66
+		printtext80	2-67
+		pu	2-67
+		px	2-68
+		random	2-69
+		readchar	2-69
+		readlist, rl	2-70
+		readlistcc, rlcc	2-71
+		recycle	2-72
+		remainder	2-72
+		repeat	2-73
+		replace	2-73
+		restore	2-74
+		rg	2-74
+		right, rt	2-75
+		round	2-75
+		run	2-75
+		savepage	2-77
+		search	2-77
+		select	2-78
+		selected	2-79
+		sentence, se	2-79
+		setbg	2-80
+		setc	2-80
+		setdisk	2-81
+		seth	2-81
+		setpos	2-82
+		setsh	2-82
+		settc	2-82
+		settextpos	2-83
+		setx	2-83
+		sety	2-84
+		shade	2-84
+		shape	2-85
+		shapes	2-85
+		show	2-86
+		shownames	2-86
+		sin	2-87
+		slowturtle	2-87
+		sol	2-87
+		space	2-88
+		sqrt	2-89
+		sspace	2-90
+		st	2-90
+		stamp	2-91
+		startup	2-91
+		stop	2-92
+		stopall	2-92
+		tab	2-93
+		tc	2-93
+		tell	2-93
+		textlen	2-94
+		textpos	2-94
+		thing	2-95
+		to	2-95
+		tone	2-96
+		tone?	2-97
+		toollist	2-97
+		top	2-98
+		towards	2-98
+		true	2-99
+		type	2-99
+		undo	2-101
+		unlock	2-101
+		unselect	2-102
+		wait	2-103
+		when	2-103
+		who	2-104
+		word	2-104
+		word?	2-105
+		xcor	2-107
+		ycor	2-109
+	ProDOS Primitives	2-111
+		bye	2-111
+		copyfile	2-111
+		createdir	2-112
+		directories	2-113
+		erasefile	2-113
+		filelist	2-114
+		loadpic	2-115
+		loadtext	2-116
+		online	2-116
+		prefix	2-117
+		rename	2-118
+		savepic	2-118
+		savetext	2-119
+		setprefix	2-119
+		setslot	2-120
+		slot	2-120
+	IBM DOS Primitives	2-121
+		chdir	2-121
+		copyfile	2-122
+		currentdir	2-123
+		directories	2-123
+		dos	2-124
+		erasefile	2-124
+		filelist	2-125
+		loadpic	2-125
+		loadtext	2-126
+		mkdir	2-126
+		rename	2-127
+		rmdir	2-127
+		savepic	2-128
+		savetext	2-128
+	System Primitives	2-129
+		System Primitives for Apple II Computers	2-129
+			.bload	2-129
+			.bsave	2-130
+			.call	2-130
+			.deposit	2-130
+			.examine	2-130
+			.version	2-130
+		System Primitives for IBM Computers	2-131
+			.deposit	2-131
+			.examine	2-131
+			.in	2-132
+			.out	2-132
+			.primitives	2-132
+			.version	2-132
+LogoWriter Versions	3-1
+	LogoWriter 2.0 for Apple II Computers	3-3
+		LogoWriter Keys	3-4
+			Apple-Combination Keys	3-4
+			Apple LogoWriter Colors	3-5
+			Game Paddle Inputs	3-5
+		The ProDOS Features of LogoWriter 2.0	3-6
+			File and Pages	3-5
+			Disks and Volumes: Setdisk Versus Setprefix	3-7
+			Directories	3-8
+			Pathnames	3-11
+			ProDOS Hierarchy and LogoWriter Commands	3-15
+			Using the ProDOS Primitives	3-16
+	LogoWriter 2.0 for IBM Computers	3-19
+		LogoWriter Keys	3-20
+			Function Keys	3-20
+			Ctrl-Combination Keys	3-20
+			Special Keys	3-21
+		Game Port Inputs	3-21
+			Game Paddles	3-21
+			Joysticks	3-22
+		LogoWriter Graphics Colors	3-22
+			IBM Color Graphics Adapter	3-22
+			Enhanced Graphics Adapter	3-23
+			PS/2 Graphics	3-24
+		The Vertical Bar (|) Delimiter Character	3-25
+		DOS Features: Subdirectory and File Management	3-26
+			Files and Pages	3-26
+			Disks and Directories	3-27
+			Summary	3-30
+			A Special Note About IBM DOS	3-31
+			Creating and Erasing Subdirectories	3-31
+			Subdirectories and LogoWriter Commands	3-34
+	LogoWriter 1.1	3-37
+		About LogoWriter 1.1	3-37
+			Why Use LogoWriter 1.1?	3-37
+			Last Page	3-38
+		LogoWriter 1.1 for Apple II Computers	3-39
+			Memory Requirements	3-39
+			LogoWriter DOS	3-39
+			Converting Pages	3-39
+		LogoWriter 1.1 for the Apple II+	3-40
+			Making Copies	3-40
+			Exchanging Disks	3-40
+			Key Use	3-40
+		LogoWriter 1.1 for the IBM PC and IBM PCjr	3-43
+			Common Features	3-43
+				Making Sounds	3-43
+			IBM PC LogoWriter Colors	3-44
+		LogoWriter 1.1 for the IBM PCjr	3-46
+			Fn-Combination Keys	3-46
+			Ctrl-Combination Keys	3-47
+			PCjr LogoWriter Colors	3-47
+		LogoWriter 1.1 for the COMMODORE 64 Computer	3-49
+			COMMODORE-Combination Keys	3-49
+			COMMODORE 64 LogoWriter Colors	3-50
+			Game Paddle Inputs	3-51
+Appendices	4-1
+	LogoWriter Primitives and Special Words	4-3
+	Startup	4-7
+		Startup as a Page Name	4-7
+		Startup as a Procedure Name	4-8
+		Startup Hints	4-8
+	Tools	4-9
+		What are Tools?	4-9
+		Advantages of Tools	4-9
+		Making a Page of Tools	4-10
+		Debugging Tools	4-10
+		Duplicate Procedure Names	4-11
+		Get Tools With Startup	4-11
+		Tools Pages on the Master Disk	4-12
+	LogoWriter Messages	4-13
+	Glossary of LogoWriter and Computer Terms	4-21
+	Index	4-29

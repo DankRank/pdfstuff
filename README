@@ -38,8 +38,10 @@ Dijkstra's Cooperating sequential processes:
 
 K&R C:
 - curl -Lo "source/The C Programming Language First Edition [UA-07].pdf" "https://archive.org/download/TheCProgrammingLanguageFirstEdition/The%20C%20Programming%20Language%20First%20Edition%20%5BUA-07%5D.pdf"
-make tcpl
 - make knrc1.pdf
+
+LogoWriter reference:
+- curl -Lo source/logowriter_reference_guide_text.pdf https://archive.org/download/logowriter_reference_guide/logowriter_reference_guide_text.pdf
 
 == pdfstuff usage ==
 The program runs commands from its arguments from left to right. List of
@@ -58,6 +60,7 @@ commands:
 --toc [file]    : reads toc from a file
 --pagemode [mode] : set pagemode
 --box n l b w h : same as a podofobox command
+--rotate-page [page] [degrees] : rotate a page
 
 num files look like:
     prefix<TAB>page number<TAB>page index
