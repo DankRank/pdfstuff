@@ -220,10 +220,16 @@ knrc1.pdf: source/The\ C\ Programming\ Language\ First\ Edition\ [UA-07].pdf knr
 		--title "The C Programming Language (First Edition)" \
 		--write $@
 
+knrc2.pdf: source/knrc2.pdf knrc2.num knrc2.toc pdfstuff
+	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num knrc2.num --toc knrc2.toc \
+		--title "The C Programming Language (Second Edition)" \
+		--annotations-clear \
+		--write $@
+
 logo.pdf: source/logowriter_reference_guide_text.pdf logo.num logo.toc pdfstuff
 	@$(info ADDTOC   $@)./pdfstuff --read '$<' --num logo.num --toc logo.toc \
 		--title "LogoWriter Reference Guide" \
 		--rotate-page 160 270 \
 		--write $@
 
-all2: all c90.pdf win103 dos2.pdf masm5 ewd123.pdf knrc1.pdf logo.pdf
+all2: all c90.pdf win103 dos2.pdf masm5 ewd123.pdf knrc1.pdf knrc2.pdf logo.pdf

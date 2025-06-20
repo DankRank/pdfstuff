@@ -40,6 +40,11 @@ K&R C:
 - curl -Lo "source/The C Programming Language First Edition [UA-07].pdf" "https://archive.org/download/TheCProgrammingLanguageFirstEdition/The%20C%20Programming%20Language%20First%20Edition%20%5BUA-07%5D.pdf"
 - make knrc1.pdf
 
+K&R C Second Edition:
+- md5: ae2417dc4f813668461fcd162b7511d7, place in source/knrc2.pdf
+- cprogramminglang00bria from archive.org should work too, though it's a worse scan
+- make knrc2.pdf
+
 LogoWriter reference:
 - curl -Lo source/logowriter_reference_guide_text.pdf https://archive.org/download/logowriter_reference_guide/logowriter_reference_guide_text.pdf
 
@@ -61,6 +66,7 @@ commands:
 --pagemode [mode] : set pagemode
 --box n l b w h : same as a podofobox command
 --rotate-page [page] [degrees] : rotate a page
+--annotations-clear : remove annotations
 
 num files look like:
     prefix<TAB>page number<TAB>page index

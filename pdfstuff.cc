@@ -417,6 +417,15 @@ int main(int argc, const char *argv[]) {
 			{"--rotate-page", {2, true, [&doc](const char **args) {
 				doc->GetPage(atol(args[0])-1)->SetRotation(atol(args[1]));
 			}}},
+			{"--annotations-clear", {0, true, [&doc](const char **args) {
+				(void)args;
+				int pages = doc->GetPageCount();
+				for (int i = 0; i < pages; i++) {
+					PdfPage *page = doc->GetPage(i);
+					for (int annots = page->GetNumAnnots(); annots;)
+						page->DeleteAnnotation(--annots);
+				}
+			}}},
 		};
 
 		for (int i = 1; i < argc; i++) {
